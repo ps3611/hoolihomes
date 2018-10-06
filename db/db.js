@@ -1,2 +1,5 @@
 // DB WRITE GOES HERE...
-console.log('change');
+
+const func3 = x => x + 10;
+
+module.exports = func3;
