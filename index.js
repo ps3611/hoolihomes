@@ -1,4 +1,6 @@
 // THIS IS EXECUTED PERIODICALLY BY CRON
+require('dotenv').load();
+console.log(process.env);
 const func1 = require('./api/api');
 const func2 = require('./algorithm/algorithm');
 const func3 = require('./db/db');
