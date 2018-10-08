@@ -1,10 +1,8 @@
 const RawHome = require('../db/rawHomesModel');
 
 module.exports = (rawHomesList) => {
-  rawHomesList.forEach((rawHome) => {
-    RawHome.create(rawHome, (err) => {
-      if (err) console.log(err);
-      else console.log('Raw Home saved to Mongo!');
-    });
+  RawHome.insertMany(rawHomesList, (err) => {
+    if (err) console.log(err);
+    else console.log(`${rawHomesList.length} RawHomes saved to Mongo!`);
   });
 };
