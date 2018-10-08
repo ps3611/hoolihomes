@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const connection = require('./db');
 
 const rawHomeSchema = new mongoose.Schema({
   propertyCode: {
     type: String,
-    required: true,
+    required: false,
   },
   thumbnail: {
     type: String,
@@ -11,15 +12,15 @@ const rawHomeSchema = new mongoose.Schema({
   },
   externalReference: {
     type: String,
-    required: true,
+    required: false,
   },
   numPhotos: {
     type: Number,
-    required: true,
+    required: false,
   },
   floor: {
-    type: Number,
-    required: true,
+    type: String,
+    required: false,
   },
   price: {
     type: Number,
@@ -27,11 +28,11 @@ const rawHomeSchema = new mongoose.Schema({
   },
   propertyType: {
     type: String,
-    required: true,
+    required: false,
   },
   operation: {
     type: String,
-    required: true,
+    required: false,
   },
   size: {
     type: Number,
@@ -39,23 +40,23 @@ const rawHomeSchema = new mongoose.Schema({
   },
   exterior: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   rooms: {
     type: Number,
-    required: true,
+    required: false,
   },
   bathrooms: {
     type: Number,
-    required: true,
+    required: false,
   },
   province: {
     type: String,
-    required: true,
+    required: false,
   },
   address: {
     type: String,
-    required: true,
+    required: false,
   },
   municipality: {
     type: String,
@@ -63,7 +64,7 @@ const rawHomeSchema = new mongoose.Schema({
   },
   district: {
     type: String,
-    required: true,
+    required: false,
   },
   country: {
     type: String,
@@ -71,7 +72,7 @@ const rawHomeSchema = new mongoose.Schema({
   },
   neighborhood: {
     type: String,
-    required: true,
+    required: false,
   },
   latitude: {
     type: Number,
@@ -83,7 +84,7 @@ const rawHomeSchema = new mongoose.Schema({
   },
   showAddress: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   url: {
     type: String,
@@ -91,34 +92,30 @@ const rawHomeSchema = new mongoose.Schema({
   },
   distance: {
     type: String,
-    required: true,
+    required: false,
   },
   hasVideo: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   status: {
     type: String,
-    required: true,
+    required: false,
   },
   newDevelopment: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   hasLift: {
     type: Boolean,
-    required: true,
-  },
-  xxxx: {
-    type: String,
-    required: true,
+    required: false,
   },
   parkingSpace: {
     type: {
       hasParkingSpace: Boolean,
       isParkingSpaceIncludedInPrice: Boolean,
     },
-    required: true,
+    required: false,
   },
   priceByArea: {
     type: Number,
@@ -129,27 +126,27 @@ const rawHomeSchema = new mongoose.Schema({
       typology: String,
       subTypology: String,
     },
-    required: true,
+    required: false,
   },
   suggestedTexts: {
     type: {
       subtitle: String,
       title: String,
     },
-    required: true,
+    required: false,
   },
   hasPlan: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   has3DTour: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   has360: {
     type: Boolean,
-    required: true,
+    required: false,
   },
 });
 
-module.exports = mongoose.model('rawHomes', rawHomeSchema);
+module.exports = connection.model('rawHomes', rawHomeSchema);

@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(
+module.exports = mongoose.createConnection(
   'mongodb://localhost:27017/mth',
   { useNewUrlParser: true },
-  () => console.log('Connected to mth MongoDB with Mongoose!')
+  (err) => {
+    if (err) console.log(err);
+    else console.log('Connected to mth MongoDB with Mongoose!');
+  },
 );
-
-const db = mongoose.connection;
-db.on('error', err => console.log(err));
-
-module.exports = db;
