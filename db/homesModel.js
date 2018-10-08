@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const connection = require('./db');
 
 const homeSchema = new mongoose.Schema({
   thumbnail: {
@@ -51,4 +52,4 @@ const homeSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('homes', homeSchema);
+module.exports = connection.model('homes', homeSchema);
