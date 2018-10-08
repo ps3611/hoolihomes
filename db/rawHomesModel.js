@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const homeSchema = new mongoose.Schema({
+const rawHomeSchema = new mongoose.Schema({
   propertyCode: {
     type: String,
     required: true,
@@ -152,4 +152,4 @@ const homeSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('homes', homeSchema);
+module.exports = mongoose.model('rawHomes', rawHomeSchema);
