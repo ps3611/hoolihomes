@@ -4,8 +4,8 @@ const writeRawDataToDb = require('./db/writeRawDataToDb');
 const algorithm = require('./algorithm/algorithm');
 
 async function main() {
-  const homesList = await getApiData();
-  await writeRawDataToDb(homesList);
+  // const homesList = await getApiData();
+  // await writeRawDataToDb(homesList);
   algorithm();
 }
 
