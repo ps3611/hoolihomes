@@ -1,5 +1,9 @@
 const loadRawDataFromDb = require('../db/loadRawDataFromDb');
 
+function diffCalc(realPrice, estimatePrice) {
+  return Math.round(100 * (estimatePrice - realPrice) / realPrice);
+}
+
 module.exports = async () => {
   const rawData = await loadRawDataFromDb();
   const m2PriceArray = rawData.map(obj => obj.priceByArea);
@@ -16,7 +20,7 @@ module.exports = async () => {
     formattedObj.url = obj.url;
     formattedObj.pricePerSquareMeter = obj.priceByArea;
     formattedObj.estimatedPrice = avgM2Price * obj.size;
-    formattedObj.estimatedPricePercentageDifference = Math.round(100 * (avgM2Price * obj.size - obj.price) / obj.price);
+    formattedObj.estimatedPricePercentageDifference = diffCalc(obj.price, avgM2Price * obj.size);
     return formattedObj;
   });
   console.log(formattedData);
