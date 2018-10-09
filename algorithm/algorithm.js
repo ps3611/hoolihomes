@@ -1,3 +1,3 @@
-// ALGORITHM GOES HERE...
-
-module.exports = x => x + 10;
+module.exports = () => {
+  console.log('---------algorithm---------');
+};

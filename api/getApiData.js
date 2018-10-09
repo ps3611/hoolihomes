@@ -2,6 +2,7 @@ const fetch = require('node-fetch');
 const getToken = require('./getToken');
 
 module.exports = async () => {
+  console.log('---------getApiData---------');
   const accessToken = await getToken();
 
   const operation = 'sale';
