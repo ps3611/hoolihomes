@@ -1,4 +1,5 @@
 const loadRawDataFromDb = require('../db/loadRawDataFromDb');
+const writeFormattedDataToDb = require('../db/writeFormattedDataToDb');
 
 function avgCalc(homesArray) {
   const m2PriceArray = homesArray.map(obj => obj.priceByArea);
@@ -18,6 +19,7 @@ module.exports = async () => {
     formattedObj.thumbnail = obj.thumbnail;
     formattedObj.price = obj.price;
     formattedObj.size = obj.size;
+    formattedObj.province = obj.province;
     formattedObj.municipality = obj.municipality;
     formattedObj.country = obj.country;
     formattedObj.latitude = obj.latitude;
@@ -28,5 +30,5 @@ module.exports = async () => {
     formattedObj.estimatedPricePercentageDifference = diffCalc(obj.price, avgM2Price * obj.size);
     return formattedObj;
   });
-  console.log(formattedData);
+  writeFormattedDataToDb(formattedData);
 };
