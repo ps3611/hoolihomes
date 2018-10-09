@@ -1,4 +1,4 @@
-const RawHome = require('../db/rawHomesModel');
+const RawHome = require('./rawHomesModel');
 const connection = require('./db');
 
 module.exports = async (rawHomesList) => {
