@@ -10,7 +10,7 @@ class IdealistaClient {
   }
 
   async fetchData() {
-    const accessToken = await this.getToken();
+    const accessToken = await this.fetchToken();
     const response = await fetch(this.endpoint, {
       method: 'POST',
       headers: {
