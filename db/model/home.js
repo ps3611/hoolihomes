@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connection = require('./db');
+const connection = require('../db');
 
 const homeSchema = new mongoose.Schema({
   thumbnail: {

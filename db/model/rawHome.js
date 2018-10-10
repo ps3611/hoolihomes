@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connection = require('./db');
+const connection = require('../db');
 
 const rawHomeSchema = new mongoose.Schema({
   propertyCode: {
@@ -60,7 +60,7 @@ const rawHomeSchema = new mongoose.Schema({
   },
   municipality: {
     type: String,
-    required: true,
+    required: false,
   },
   district: {
     type: String,
