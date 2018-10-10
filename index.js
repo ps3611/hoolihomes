@@ -1,11 +1,11 @@
 require('dotenv').load();
-const getDataFromApi = require('./api');
-const algorithm = require('./algorithm/algorithm');
+const runApiService = require('./api');
+// const algorithm = require('./algorithm/algorithm');
 
 async function main() {
   // const homesList = await getApiData();
   // await writeRawDataToDb(homesList);
-  await getDataFromApi();
+  await runApiService();
   // algorithm();
 }
 

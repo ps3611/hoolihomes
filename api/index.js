@@ -1,11 +1,13 @@
 const NestoriaClient = require('./class/nestoria');
+const IdealistaClient = require('./class/idealista');
 
-async function main() {
-  const nestoriaInstance = new NestoriaClient('eeendpoint');
-  const nestoriaRawData = await nestoriaInstance.fetchData();
-  const nestoriaProcessedData = nestoriaInstance.processData(nestoriaRawData);
-  nestoriaInstance.saveData(nestoriaProcessedData);
-  console.log(nestoriaProcessedData);
-}
+const nestoria = new NestoriaClient();
+const idealista = new IdealistaClient();
 
-main();
+module.exports = async () => {
+  [idealista, nestoria].forEach(async (api) => {
+    const rawData = await api.fetchData();
+    const processedData = api.processData(rawData);
+    api.saveData(processedData);
+  });
+};
