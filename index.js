@@ -1,12 +1,12 @@
 require('dotenv').load();
 const runApiService = require('./api');
-// const algorithm = require('./algorithm/algorithm');
+const algorithm = require('./algorithm/algorithm');
 
 async function main() {
-  // const homesList = await getApiData();
-  // await writeRawDataToDb(homesList);
+  // STEP 1: Get data from different APIs
   await runApiService();
-  // algorithm();
+  // STEP 2: Apply algorithm
+  algorithm();
 }
 
 main();
