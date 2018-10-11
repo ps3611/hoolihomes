@@ -5,13 +5,12 @@ const { avgCalc, diffCalc } = require('./helpers');
 module.exports = async () => {
   const rawData = await loadRawDataFromDb();
   const avgM2Price = avgCalc(rawData);
+  console.log(rawData[0]);
   const formattedData = rawData.map((obj) => {
     const formattedObj = {};
     formattedObj.thumbnail = obj.thumbnail;
     formattedObj.price = obj.price;
     formattedObj.size = obj.size;
-    formattedObj.province = obj.province;
-    formattedObj.municipality = obj.municipality;
     formattedObj.country = obj.country;
     formattedObj.latitude = obj.latitude;
     formattedObj.longitude = obj.longitude;
@@ -21,5 +20,6 @@ module.exports = async () => {
     formattedObj.estimatedPricePercentageDifference = diffCalc(obj.price, avgM2Price * obj.size);
     return formattedObj;
   });
+  console.log(formattedData[0]);
   writeFormattedDataToDb(formattedData);
 };

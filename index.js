@@ -1,13 +1,13 @@
 require('dotenv').load();
 const runApiService = require('./api');
-const algorithm = require('./algorithm/algorithm');
+const algorithm = require('./algorithm');
 
 async function main() {
   // STEP 1: Get data from different APIs
-  await Promise.all(runApiService());
+  // await Promise.all(runApiService());
 
   // STEP 2: Apply algorithm
-  algorithm();
+  await algorithm();
 
   // shut down Mongo connection.
   process.exit();
