@@ -1,11 +1,13 @@
-const loadRawDataFromDb = require('../db/loadRawDataFromDb');
-const writeFormattedDataToDb = require('../db/writeFormattedDataToDb');
-const { avgCalc, diffCalc } = require('./helpers');
+const {
+  loadRawData,
+  saveFormattedData,
+  avgCalc,
+  diffCalc,
+} = require('./helpers');
 
 module.exports = async () => {
-  const rawData = await loadRawDataFromDb();
+  const rawData = await loadRawData();
   const avgM2Price = avgCalc(rawData);
-  console.log(rawData[0]);
   const formattedData = rawData.map((obj) => {
     const formattedObj = {};
     formattedObj.thumbnail = obj.thumbnail;
@@ -20,6 +22,5 @@ module.exports = async () => {
     formattedObj.estimatedPricePercentageDifference = diffCalc(obj.price, avgM2Price * obj.size);
     return formattedObj;
   });
-  console.log(formattedData[0]);
-  writeFormattedDataToDb(formattedData);
+  await saveFormattedData(formattedData);
 };
