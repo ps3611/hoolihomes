@@ -1,9 +1,9 @@
 const fetch = require('node-fetch');
-const RawHome = require('../../db/model/rawHome');
-const connection = require('../../db/db');
+const ApiClient = require('./apiClient');
 
-class IdealistaClient {
+class IdealistaClient extends ApiClient {
   constructor() {
+    super();
     this.name = 'idealista';
     this.endpoint = 'https://api.idealista.com/3.5/es/search?operation=sale&propertyType=homes&center=40.123,-3.242&distance=100000';
     this.tokenEndpoint = 'https://api.idealista.com/oauth/token?grant_type=client_credentials';
@@ -38,11 +38,6 @@ class IdealistaClient {
       return processedObj;
     });
     return processedHomesArray;
-  }
-
-  async saveData(processedHomesArray) {
-    const dropResponse = await connection.collections.rawhomes.drop();
-    const insertManyResponse = await RawHome.insertMany(processedHomesArray);
   }
 
   async fetchToken() {
