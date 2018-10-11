@@ -1,11 +1,11 @@
 const fetch = require('node-fetch');
-const RawHome = require('../../db/model/rawHome');
-const connection = require('../../db/db');
+const ApiClient = require('./apiClient');
 
-class NestoriaClient {
+class NestoriaClient extends ApiClient {
   constructor() {
+    super();
     this.name = 'nestoria';
-    this.endpoint = 'https://api.nestoria.es/api?encoding=json&pretty=1&action=search_listings&country=es&listing_type=buy&place_name=barcelona';
+    this.endpoint = 'https://api.nestoria.es/api?encoding=json&action=search_listings&country=es&listing_type=buy&place_name=barcelona';
   }
 
   async fetchData() {
@@ -32,13 +32,6 @@ class NestoriaClient {
       return processedObj;
     });
     return processedHomesArray;
-  }
-
-  async saveData(processedHomesArray) {
-    const dropResponse = await connection.collections.rawhomes.drop();
-    console.log(dropResponse ? 'drop successful!' : 'drop error!');
-    const insertManyResponse = await RawHome.insertMany(processedHomesArray);
-    console.log(insertManyResponse.length > 0 ? 'insertMany successful!' : 'insertMany error!');
   }
 }
 

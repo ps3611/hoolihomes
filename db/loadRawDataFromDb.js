@@ -1,4 +1,4 @@
-const RawHome = require('./rawHomesModel');
+const RawHome = require('./model/rawHome');
 
 module.exports = async () => {
   const findResponse = await RawHome.find({});

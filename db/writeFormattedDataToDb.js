@@ -1,4 +1,4 @@
-const Home = require('./homesModel');
+const Home = require('./model/home');
 const connection = require('./db');
 
 module.exports = async (homesList) => {
