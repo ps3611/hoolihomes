@@ -36,9 +36,7 @@ class NestoriaClient {
 
   async saveData(processedHomesArray) {
     const dropResponse = await connection.collections.rawhomes.drop();
-    console.log(dropResponse ? 'drop successful!' : 'drop error!');
     const insertManyResponse = await RawHome.insertMany(processedHomesArray);
-    console.log(insertManyResponse.length > 0 ? 'insertMany successful!' : 'insertMany error!');
   }
 }
 
