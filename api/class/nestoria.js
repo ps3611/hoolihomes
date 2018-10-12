@@ -28,7 +28,7 @@ class NestoriaClient extends ApiClient {
       processedObj.latitude = obj.latitude;
       processedObj.longitude = obj.longitude;
       processedObj.url = obj.lister_url;
-      processedObj.priceByArea = obj.price / obj.price;
+      processedObj.priceByArea = obj.price / obj.size;
       return processedObj;
     });
     return processedHomesArray;
