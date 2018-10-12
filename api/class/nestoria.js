@@ -1,19 +1,27 @@
 const fetch = require('node-fetch');
 const ApiClient = require('./apiClient');
+/* eslint-disable no-await-in-loop */
 
 class NestoriaClient extends ApiClient {
   constructor() {
     super();
     this.name = 'nestoria';
-    this.endpoint = 'https://api.nestoria.es/api?encoding=json&action=search_listings&country=es&listing_type=buy&place_name=barcelona';
+    this.endpoint = 'https://api.nestoria.es/api';
   }
 
   async fetchData() {
-    const response = await fetch(this.endpoint, {
-      method: 'GET',
-    });
-    const responseJson = await response.json();
-    return responseJson.response.listings;
+    let fetchedData = [];
+    const country = 'es';
+    const city = 'barcelona';
+    for (let page = 1; page <= 10; page += 1) {
+      const url = `${this.endpoint}?encoding=json&action=search_listings&number_of_results=50&listing_type=buy&country=${country}&place_name=${city}&page=${page}`;
+      const response = await fetch(url, {
+        method: 'GET',
+      });
+      const responseJson = await response.json();
+      fetchedData = fetchedData.concat(responseJson.response.listings);
+    }
+    return fetchedData;
   }
 
   processData(rawHomesArray) {
