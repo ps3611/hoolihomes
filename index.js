@@ -1,23 +1,15 @@
 require('dotenv').load();
-const runApiService = require('./api');
-const algorithm = require('./algorithm');
-const connection = require('./db/db');
+const apiService = require('./api');
+const algorithmService = require('./algorithm');
 
 async function main() {
   // STEP 1: Get data from different APIs
-  await Promise.all(runApiService());
+  await Promise.all(apiService());
 
   // STEP 2: Apply algorithm
-  await algorithm();
+  await algorithmService();
 
-  // finalizing steps
-  try {
-    await connection.collections.rawhomes.drop();
-    process.exit();
-  }
-  catch (err) {
-    console.log('Shutdown ERROR', err);
-  }
+  process.exit();
 }
 
 main();
