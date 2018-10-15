@@ -10,6 +10,7 @@ module.exports = async () => {
   const avgM2Price = avgCalc(rawData);
   const formattedData = rawData.map((obj) => {
     const formattedObj = {};
+    formattedObj.id = obj.id;
     formattedObj.thumbnail = obj.thumbnail;
     formattedObj.price = obj.price;
     formattedObj.size = obj.size;

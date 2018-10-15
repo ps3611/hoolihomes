@@ -2,13 +2,41 @@ const mongoose = require('mongoose');
 const connection = require('../db');
 
 const rawHomeSchema = new mongoose.Schema({
-  propertyCode: {
-    type: String,
-    required: false,
+  id: {
+    type: Number,
+    required: true,
   },
   thumbnail: {
     type: String,
     required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  latitude: {
+    type: Number,
+    required: true,
+  },
+  longitude: {
+    type: Number,
+    required: true,
+  },
+  url: {
+    type: String,
+    required: true,
+  },
+  priceByArea: {
+    type: Number,
+    required: true,
+  },
+  propertyCode: {
+    type: String,
+    required: false,
   },
   externalReference: {
     type: String,
@@ -21,10 +49,6 @@ const rawHomeSchema = new mongoose.Schema({
   floor: {
     type: String,
     required: false,
-  },
-  price: {
-    type: Number,
-    required: true,
   },
   propertyType: {
     type: String,
@@ -66,29 +90,13 @@ const rawHomeSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  country: {
-    type: String,
-    required: true,
-  },
   neighborhood: {
     type: String,
     required: false,
   },
-  latitude: {
-    type: Number,
-    required: true,
-  },
-  longitude: {
-    type: Number,
-    required: true,
-  },
   showAddress: {
     type: Boolean,
     required: false,
-  },
-  url: {
-    type: String,
-    required: true,
   },
   distance: {
     type: String,
@@ -117,10 +125,6 @@ const rawHomeSchema = new mongoose.Schema({
     },
     required: false,
   },
-  priceByArea: {
-    type: Number,
-    required: true,
-  },
   detailedType: {
     type: {
       typology: String,
@@ -147,6 +151,8 @@ const rawHomeSchema = new mongoose.Schema({
     type: Boolean,
     required: false,
   },
+}, {
+  versionKey: false,
 });
 
 module.exports = connection.model('rawHomes', rawHomeSchema);
