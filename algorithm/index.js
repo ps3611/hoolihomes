@@ -17,9 +17,9 @@ module.exports = async () => {
     formattedObj.latitude = obj.latitude;
     formattedObj.longitude = obj.longitude;
     formattedObj.url = obj.url;
-    formattedObj.pricePerSquareMeter = obj.priceByArea;
+    formattedObj.pricePerSquareMeter = Math.round(obj.priceByArea);
     formattedObj.estimatedPrice = avgM2Price * obj.size;
-    formattedObj.estimatedPricePercentageDifference = diffCalc(obj.price, avgM2Price * obj.size);
+    formattedObj.estimatedPricePercentageDifference = Math.round(diffCalc(obj.price, avgM2Price * obj.size));
     return formattedObj;
   });
   await saveFormattedData(formattedData);
