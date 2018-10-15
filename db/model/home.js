@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const connection = require('../db');
 
 const homeSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+    required: true,
+  },
   thumbnail: {
     type: String,
     required: true,
@@ -42,6 +46,8 @@ const homeSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+}, {
+  versionKey: false,
 });
 
 module.exports = connection.model('homes', homeSchema);
