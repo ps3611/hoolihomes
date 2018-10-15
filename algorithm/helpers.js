@@ -1,3 +1,4 @@
+const connection = require('../db/db');
 const RawHome = require('../db/model/rawHome');
 const Home = require('../db/model/home');
 
@@ -10,12 +11,26 @@ module.exports.loadRawData = async () => {
   }
 };
 
-module.exports.saveFormattedData = async (homesList) => {
+module.exports.saveFormattedData = async (formattedHomesList) => {
   try {
-    await Home.insertMany(homesList);
+    const rawhomes = await connection.collections.rawhomes.find({}).toArray();
+    const rawhomesId = new Set(rawhomes.map(obj => obj.id));
+    await connection.collections.rawhomes.drop();
+
+    const homes = formattedHomesList;
+    const homesId = new Set(homes.map(obj => obj.id));
+
+    // DELETE
+    const toDeleteHomeIds = [...homesId].filter(x => !rawhomesId.has(x));
+    await Home.deleteMany({ id: { $in: toDeleteHomeIds } });
+    // UPDATE
+    const toUpdateHomeIds = [...homesId].filter(x => rawhomesId.has(x));
+    // ADD
+    const toAddHomeIds = [...rawhomesId].filter(x => !homesId.has(x));
+    // await Home.insertMany(homesList);
   }
-  catch (e) {
-    console.log(e);
+  catch (err) {
+    console.log('Shutdown ERROR', err);
   }
 };
 
