@@ -11,27 +11,23 @@ module.exports.loadRawData = async () => {
   }
 };
 
-module.exports.saveFormattedData = async (homesList) => {
+module.exports.saveFormattedData = async (formattedHomesList) => {
   try {
-    const rawhomes = homesList;
+    const rawhomes = await connection.collections.rawhomes.find({}).toArray();
     const rawhomesId = new Set(rawhomes.map(obj => obj.id));
-    console.log(rawhomesId.size);
     await connection.collections.rawhomes.drop();
 
-    const homes = await connection.collections.homes.find({}).toArray();
+    const homes = formattedHomesList;
     const homesId = new Set(homes.map(obj => obj.id));
-    console.log(homesId.size);
 
     // DELETE
-    const toDelete = [...homesId].filter(x => !rawhomesId.has(x));
-    console.log('toDelete', toDelete.length);
-    await Home.deleteMany({ id: { $in: toDelete } });
+    const toDeleteHomeIds = [...homesId].filter(x => !rawhomesId.has(x));
+    await Home.deleteMany({ id: { $in: toDeleteHomeIds } });
     // UPDATE
-    const toUpdate = [...homesId].filter(x => rawhomesId.has(x));
-    console.log('toUpdate', toUpdate.length);
+    const toUpdateHomeIds = [...homesId].filter(x => rawhomesId.has(x));
     // ADD
-    const toAdd = [...rawhomesId].filter(x => !homesId.has(x));
-    console.log('toAdd', toAdd.length);
+    const toAddHomeIds = [...rawhomesId].filter(x => !homesId.has(x));
+    // await Home.insertMany(homesList);
   }
   catch (err) {
     console.log('Shutdown ERROR', err);
