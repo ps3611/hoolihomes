@@ -1,5 +1,6 @@
 const algorithm = require('./algorithm');
-const { loadRawData, saveFormattedData } = require('./helpers');
+const saveFormattedData = require('./saveFormattedData');
+const { loadRawData } = require('./helpers');
 
 module.exports = async () => {
   const rawData = await loadRawData();
