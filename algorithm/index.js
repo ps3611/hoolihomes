@@ -18,8 +18,8 @@ module.exports = async () => {
     formattedObj.latitude = obj.latitude;
     formattedObj.longitude = obj.longitude;
     formattedObj.url = obj.url;
-    formattedObj.pricePerSquareMeter = obj.priceByArea;
-    formattedObj.estimatedPrice = avgM2Price * obj.size;
+    formattedObj.pricePerSquareMeter = Math.round(obj.priceByArea);
+    formattedObj.estimatedPrice = Math.round(avgM2Price * obj.size);
     formattedObj.estimatedPricePercentageDifference = diffCalc(obj.price, avgM2Price * obj.size);
     return formattedObj;
   });
