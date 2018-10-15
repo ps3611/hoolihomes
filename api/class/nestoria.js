@@ -13,7 +13,7 @@ class NestoriaClient extends ApiClient {
     let fetchedData = [];
     const country = 'es';
     const city = 'barcelona';
-    for (let page = 1; page <= 1; page += 1) {
+    for (let page = 1; page <= 10; page += 1) {
       const url = `${this.endpoint}?encoding=json&action=search_listings&number_of_results=50&listing_type=buy&country=${country}&place_name=${city}&page=${page}`;
       const response = await fetch(url, {
         method: 'GET',
@@ -27,7 +27,6 @@ class NestoriaClient extends ApiClient {
   processData(rawHomesArray) {
     const processedHomesArray = rawHomesArray.map((obj) => {
       // here we define id to be the nestoria image id.
-      // thats the only unique id the API client gives us...
       const id = obj.img_url.substring(
         obj.img_url.lastIndexOf('_') + 1,
         obj.img_url.lastIndexOf('.jpg')
