@@ -17,5 +17,5 @@ module.exports.avgCalc = function avgCalc(homesArray) {
 };
 
 module.exports.diffCalc = function diffCalc(realPrice, estimatePrice) {
-  return Math.round(100 * (estimatePrice - realPrice) / realPrice);
+  return Math.round(100 * (realPrice - estimatePrice) / estimatePrice);
 };
