@@ -1,20 +1,20 @@
 const fetch = require('node-fetch');
 const ApiClient = require('./apiClient');
+const { nestoriaParams } = require('./params.json');
 /* eslint-disable no-await-in-loop */
 
 class NestoriaClient extends ApiClient {
   constructor() {
     super();
     this.name = 'nestoria';
-    this.endpoint = 'https://api.nestoria.es/api';
+    this.params = nestoriaParams;
   }
 
-  async fetchData() {
+  async fetchData(paramObj) {
     let fetchedData = [];
-    const country = 'es';
-    const city = 'barcelona';
-    for (let page = 1; page <= 10; page += 1) {
-      const url = `${this.endpoint}?encoding=json&action=search_listings&number_of_results=50&listing_type=buy&country=${country}&place_name=${city}&page=${page}`;
+    const { city, country } = paramObj;
+    for (let page = 1; page <= 1; page += 1) {
+      const url = `https://api.nestoria.${country}/api?encoding=json&action=search_listings&number_of_results=20&listing_type=buy&country=${country}&place_name=${city}&page=${page}`;
       const response = await fetch(url, {
         method: 'GET',
       });
@@ -24,7 +24,8 @@ class NestoriaClient extends ApiClient {
     return fetchedData;
   }
 
-  processData(rawHomesArray) {
+  processData(rawHomesArray, paramObj) {
+    const { country } = paramObj;
     const processedHomesArray = rawHomesArray.map((obj) => {
       // here we define id to be the nestoria image id.
       const id = obj.img_url.substring(
@@ -37,7 +38,7 @@ class NestoriaClient extends ApiClient {
       processedObj.thumbnail = obj.img_url;
       processedObj.price = obj.price;
       processedObj.size = obj.size;
-      processedObj.country = 'es';
+      processedObj.country = country;
       processedObj.latitude = obj.latitude;
       processedObj.longitude = obj.longitude;
       processedObj.url = obj.lister_url;

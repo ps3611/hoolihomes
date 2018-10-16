@@ -1,6 +1,6 @@
 const NestoriaClient = require('./class/nestoria');
 const IdealistaClient = require('./class/idealista');
-const cities = require('./cities.json');
+/* eslint-disable no-restricted-syntax, no-await-in-loop */
 
 const nestoria = new NestoriaClient();
 const idealista = new IdealistaClient();
@@ -9,14 +9,16 @@ const apiArray = [nestoria];
 module.exports = () => (
   apiArray.map(async (api) => {
     try {
-      const rawData = await api.fetchData();
-      console.log(`${api.name} data successfully fetched!`);
+      for (const paramObj of api.params) {
+        const rawData = await api.fetchData(paramObj);
+        console.log(`${api.name} data for ${JSON.stringify(paramObj)} successfully fetched!`);
 
-      const processedData = api.processData(rawData);
-      console.log(`${api.name} data successfully processed!`);
+        const processedData = api.processData(rawData, paramObj);
+        console.log(`${api.name} data for ${JSON.stringify(paramObj)} successfully processed!`);
 
-      await api.saveData(processedData);
-      console.log(`${api.name} data successfully saved!`);
+        await api.saveData(processedData);
+        console.log(`${api.name} data for ${JSON.stringify(paramObj)} successfully saved!`);
+      }
     }
     catch (err) {
       console.log(`${api.name} ERROR`);

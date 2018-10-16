@@ -1,0 +1,17 @@
+{
+  "nestoriaParams" : [
+      {
+        "city": "milano",
+        "country": "it"
+      },
+      {
+        "city": "barcelona",
+        "country": "es"
+      },
+      {
+        "city": "nice",
+        "country": "fr"
+      }
+  ],
+  "idealistaParams" : []
+}
