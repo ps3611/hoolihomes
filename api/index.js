@@ -1,5 +1,6 @@
 const NestoriaClient = require('./class/nestoria');
 const IdealistaClient = require('./class/idealista');
+const cities = require('./cities.json');
 
 const nestoria = new NestoriaClient();
 const idealista = new IdealistaClient();

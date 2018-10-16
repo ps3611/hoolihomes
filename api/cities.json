@@ -1,0 +1,24 @@
+{
+  "cities" : [
+      {
+        "city": "barcelona",
+        "country": "es"
+      },
+      {
+        "city": "valencia",
+        "country": "es"
+      },
+      {
+        "city": "bilbao",
+        "country": "es"
+      },
+      {
+        "city": "roma",
+        "country": "it"
+      },
+      {
+        "city": "lisabon",
+        "country": "pt"
+      }
+  ]
+}
