@@ -3,7 +3,7 @@ const IdealistaClient = require('./class/idealista');
 
 const nestoria = new NestoriaClient();
 const idealista = new IdealistaClient();
-const apiArray = [nestoria, idealista];
+const apiArray = [nestoria];
 
 module.exports = () => (
   apiArray.map(async (api) => {
