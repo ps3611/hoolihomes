@@ -13,9 +13,8 @@ function algorithm(rawData) {
     formattedObj.size = obj.size;
     formattedObj.country = obj.country;
     formattedObj.city = obj.city;
-    formattedObj.latitude = obj.latitude;
-    formattedObj.longitude = obj.longitude;
     formattedObj.url = obj.url;
+    formattedObj.loc = { type: 'Point', coordinates: [obj.longitude, obj.latitude] };
     formattedObj.pricePerSquareMeter = Math.round(obj.priceByArea);
     formattedObj.estimatedPrice = Math.round(avgM2Price * obj.size);
     formattedObj.estimatedPricePercentageDifference = diffCalc(obj.price, avgM2Price * obj.size);
