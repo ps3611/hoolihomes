@@ -1,0 +1,109 @@
+{
+  "mapInfo": [
+      {
+        "name": "barcelona",
+        "label": "Barcelona",
+        "latitude": 41.385063,
+        "longitude": 2.173404,
+        "radius": 50000
+      },
+      {
+        "name": "valencia",
+        "label": "Valencia",
+        "latitude": 28.521076,
+        "longitude": -81.465523,
+        "radius": 50000
+      },
+      {
+        "name": "murcia",
+        "label": "Murcia",
+        "latitude": 37.992241,
+        "longitude": -1.130654,
+        "radius": 50000
+      },
+      {
+        "name": "malaga",
+        "label": "Malaga",
+        "latitude": 36.721275,
+        "longitude": -4.421399,
+        "radius": 50000
+      },
+      {
+        "name": "palma-de-mallorca",
+        "label": "Palma De Mallorca",
+        "latitude": 39.569599,
+        "longitude": 2.650160,
+        "radius": 50000
+      },
+      {
+        "name": "roma",
+        "label": "Roma",
+        "latitude": 36.076637,
+        "longitude": -95.903633,
+        "radius": 50000
+      },
+      {
+        "name": "genova",
+        "label": "Genova",
+        "latitude": 44.405651,
+        "longitude": 8.946256,
+        "radius": 50000
+      },
+      {
+        "name": "naples",
+        "label": "Naples",
+        "latitude": 40.851799,
+        "longitude": 14.268120,
+        "radius": 50000
+      },
+      {
+        "name": "palermo",
+        "label": "Palermo",
+        "latitude": 38.115688,
+        "longitude": 13.361267,
+        "radius": 50000
+      },
+      {
+        "name": "cagliari",
+        "label": "Cagliari",
+        "latitude": 39.223843,
+        "longitude": 9.121661,
+        "radius": 50000
+      },
+      {
+        "name": "ajaccio",
+        "label": "Ajaccio",
+        "latitude": 41.918620,
+        "longitude": 8.736870,
+        "radius": 50000
+      },
+      {
+        "name": "marseille",
+        "label": "Marseille",
+        "latitude": 43.296482,
+        "longitude": 5.369780,
+        "radius": 50000
+      },
+      {
+        "name": "nice",
+        "label": "Nice",
+        "latitude": 43.710175,
+        "longitude": 7.261953,
+        "radius": 50000
+      },
+      {
+        "name": "cannes",
+        "label": "Cannes",
+        "latitude": 43.550900,
+        "longitude": 7.010540,
+        "radius": 50000
+      },
+      {
+        "name": "montpellier",
+        "label": "Montpellier",
+        "latitude": 43.610767,
+        "longitude": 3.876716,
+        "radius": 50000
+      }
+  ]
+}

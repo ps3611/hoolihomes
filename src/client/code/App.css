@@ -1,0 +1,28 @@
+.Filter {
+	background-color: hsl(0, 0%, 96%);
+}
+
+.Display {
+	background-color: hsl(0, 0%, 96%);
+}
+
+.NavBar {
+	background-color: hsl(0, 0%, 96%);
+}
+
+.tile {
+	background-color: hsl(0, 0%, 96%);
+}
+
+.item {
+	border: 2px solid purple;			
+}
+
+.impala {
+	max-width: 33%;
+	margin-right: 15px;
+	padding-right: 15px;
+}
+
+
+
