@@ -1,3 +1,0 @@
-// ALGORITHM GOES HERE...
-
-module.exports = x => x + 10;

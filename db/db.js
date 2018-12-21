@@ -1,3 +1,0 @@
-// DB WRITE GOES HERE...
-
-module.exports = x => x + 10;

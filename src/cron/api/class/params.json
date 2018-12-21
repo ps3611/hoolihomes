@@ -1,0 +1,65 @@
+{
+  "nestoriaParams" : [
+      {
+        "city": "roma",
+        "country": "it"
+      },
+      {
+        "city": "genova",
+        "country": "it"
+      },
+      {
+        "city": "naples",
+        "country": "it"
+      },
+      {
+        "city": "palermo",
+        "country": "it"
+      },
+      {
+        "city": "cagliari",
+        "country": "it"
+      },
+      {
+        "city": "barcelona",
+        "country": "es"
+      },
+      {
+        "city": "valencia",
+        "country": "es"
+      },
+      {
+        "city": "murcia",
+        "country": "es"
+      },
+      {
+        "city": "malaga",
+        "country": "es"
+      },
+      {
+        "city": "palma-de-mallorca",
+        "country": "es"
+      },
+      {
+        "city": "nice",
+        "country": "fr"
+      },
+      {
+        "city": "marseille",
+        "country": "fr"
+      },
+      {
+        "city": "ajaccio",
+        "country": "fr"
+      },
+      {
+        "city": "cannes",
+        "country": "fr"
+      },
+      {
+        "city": "montpellier",
+        "country": "fr"
+      }
+  ],
+  "idealistaParams" : []
+}
