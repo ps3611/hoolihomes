@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <div>
+        <div style={{flex:1,display:'flex',flexDirection:'row'}}>
           <ListView />
           <MapView />
         </div>
