@@ -1,4 +1,4 @@
-require('dotenv').load();
+// require('dotenv').load();
 const apiService = require('./api');
 const algorithmService = require('./algorithm');
 
