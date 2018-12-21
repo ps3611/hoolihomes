@@ -66,9 +66,9 @@ module.exports.formatHomes = function formatHomes(homesArray) {
 
 module.exports.processQuery = function processQuery(queryObj) {
   const processedObj = {};
-  processedObj.estimatedPricePercentageDifference = queryObj.estimatedPricePercentageDifference.map(string => parseInt(string, 10));
-  processedObj.price = queryObj.price.map(string => parseInt(string, 10));
-  processedObj.size = queryObj.size.map(string => parseInt(string, 10));
+  // processedObj.estimatedPricePercentageDifference = queryObj.estimatedPricePercentageDifference.map(string => parseInt(string, 10));
+  // processedObj.price = queryObj.price.map(string => parseInt(string, 10));
+  // processedObj.size = queryObj.size.map(string => parseInt(string, 10));
   processedObj.country = queryObj.country;
   processedObj.city = queryObj.city;
   processedObj.page = parseInt(queryObj.page, 10);
