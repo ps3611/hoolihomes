@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
+import { connect } from 'react-redux';
+import { fetchHomesList } from '../actions/apiActions';
 import Navbar from './Navbar';
 import ListView from './ListView';
 import MapView from './MapView';
+import '../styles/App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchHomesList(1);
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,4 +24,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchHomesList: page => dispatch(fetchHomesList(page)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
