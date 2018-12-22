@@ -7,9 +7,21 @@ import '../styles/ListView.css';
 class ListView extends Component {
   render() {
     const { homesList } = this.props;
-    const homes = [ <Home />,<Home />,<Home />,<Home />,<Home />,<Home />,<Home />,<Home />,<Home />,<Home />,  <Home />,<Home />,];
+    const homes = homesList.map((home, i) => {
+      return (
+        <Home
+          key={i}
+          picture={home.thumbnail}
+          size={home.size}
+          price={home.price}
+          pricePerSquareMeter={home.pricePerSquareMeter}
+          estimatedPrice={home.estimatedPrice}
+          url={home.url}
+        />
+      );
+    });
     return (
-        <InfiniteScroll className="ListView">
+        <InfiniteScroll className='ListView'>
           {homes}
         </InfiniteScroll>
     );
