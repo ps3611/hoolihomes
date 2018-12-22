@@ -7,6 +7,7 @@ import '../styles/ListView.css';
 class ListView extends Component {
   render() {
     const { homesList } = this.props;
+    console.log(homesList);
     const homes = homesList.map((home, i) => {
       return (
         <Home

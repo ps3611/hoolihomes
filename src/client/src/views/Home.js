@@ -7,17 +7,20 @@ class Home extends Component {
       picture,
       size,
       price,
-      pricePerSquareMeter,
-      estimatedPrice,
     } = this.props;
     return (
       <div className='Home'>
-        <img src={picture} alt='home'/>
-        <h1>Home</h1>
-        <p>Size: {size}</p>
-        <p>Price: {price}</p>
-        <p>Estimated Price: {estimatedPrice}</p>
-        <p>Price per m2: {pricePerSquareMeter}</p>
+        <div className='HomePicture' style={{ backgroundImage: `url(${picture})`}}>
+        </div>
+        <div className='HomeInfo'>
+          <div className='HomeTitle'>
+            <h3>Home Name</h3>
+          </div>
+          <div className='HomeDetails'>
+            <p>{size}m2</p>
+            <p>${price}</p>
+          </div>
+        </div>
       </div>
     );
   }

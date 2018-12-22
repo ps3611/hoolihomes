@@ -4,4 +4,30 @@
   color: white;
   margin: 10px;
   height: 40%;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
 }
+
+.HomePicture {
+  flex: 2;
+}
+
+.HomeInfo {
+  flex: 1;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+}
+
+.HomeTitle {
+  background-color: pink;
+}
+
+.HomeDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: blue;
+}
+
