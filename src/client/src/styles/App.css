@@ -6,3 +6,9 @@
   height: 100%;
 }
 
+.MainView {
+  flex:1;
+  display: flex;
+  flex-direction: row;
+}
+

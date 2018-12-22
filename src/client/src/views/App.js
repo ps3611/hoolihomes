@@ -13,9 +13,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <Navbar />
-        <div style={{flex:1,display:'flex',flexDirection:'row'}}>
+        <div className='MainView'>
           <ListView />
           <MapView />
         </div>
