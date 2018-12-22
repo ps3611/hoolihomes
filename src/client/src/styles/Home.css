@@ -1,0 +1,6 @@
+.Home {
+  flex: 1 0 40%;
+  background-color: blue;
+  color: white;
+  margin: 10px;
+}

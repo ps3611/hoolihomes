@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import Home from './Home';
 import '../styles/ListView.css'
 
 class ListView extends Component {
   render() {
     return (
       <div className="ListView">
-        <h1>My List View</h1>
+        <Home />
+        <Home />
+        <Home />
+        <Home />
+        <Home />
+        <Home />
       </div>
     );
   }

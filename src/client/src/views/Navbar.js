@@ -5,7 +5,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="Navbar">
-        <h1>My Navbar</h1>
+        <h1>Hooli Homes</h1>
       </div>
     );
   }
