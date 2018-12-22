@@ -5,4 +5,5 @@
   flex-wrap: wrap;
   background-color: green;
   color: white;
+  overflow: scroll;
 }
