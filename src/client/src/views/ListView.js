@@ -5,6 +5,13 @@ import Home from './Home';
 import '../styles/ListView.css';
 
 class ListView extends Component {
+
+
+
+  loadFunc = () =>{
+    console.log('Load more!');
+  }
+
   render() {
     const { homesList } = this.props;
     console.log(homesList);
@@ -22,7 +29,13 @@ class ListView extends Component {
       );
     });
     return (
-        <InfiniteScroll className='ListView'>
+        <InfiniteScroll
+          loadMore={this.loadFunc}
+          hasMore={true || false}
+          loader={<div key={0}>Loading ...</div>}
+          threshold={200}
+          className='ListView'
+        >
           {homes}
         </InfiniteScroll>
     );
