@@ -54,6 +54,7 @@ module.exports.formatHomes = function formatHomes(homesArray) {
     formattedObj.size = obj.size;
     formattedObj.country = obj.country;
     formattedObj.city = obj.city;
+    formattedObj.title = obj.title;
     formattedObj.longitude = obj.loc.coordinates[0];
     formattedObj.latitude = obj.loc.coordinates[1];
     formattedObj.url = obj.url;

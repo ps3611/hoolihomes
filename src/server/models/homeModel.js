@@ -22,6 +22,10 @@ const homeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  title: {
+    type: String,
+    required: true,
+  },
   loc: {
     type: { type: String },
     coordinates: [Number],
