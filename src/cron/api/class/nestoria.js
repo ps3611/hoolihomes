@@ -28,6 +28,7 @@ class NestoriaClient extends ApiClient {
     const { country, city } = paramObj;
     const altObj = {
       img_url: 'no img_url',
+      title: 'no title',
       price: 0,
       size: 1,
       latitude: 0,
@@ -47,6 +48,7 @@ class NestoriaClient extends ApiClient {
       processedObj.apiSource = this.name;
       processedObj.id = obj.img_url ? id : altObj.id;
       processedObj.thumbnail = obj.img_url ? obj.img_url : altObj.img_url;
+      processedObj.title = obj.title ? obj.title : altObj.title;
       processedObj.price = obj.price ? obj.price : altObj.price;
       processedObj.size = obj.size ? obj.size : altObj.size;
       processedObj.latitude = obj.latitude ? obj.latitude : altObj.latitude;
