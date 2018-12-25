@@ -15,11 +15,11 @@ class Home extends Component {
         </div>
         <div className='HomeInfo'>
           <div className='HomeTitle'>
-            <h3 style={{backgroundColor:'red'}}>Home Name</h3>
+            <h3 style={{backgroundColor:'red'}}>{title}</h3>
           </div>
           <div className='HomeDetails'>
-            <p style={{backgroundColor:'red'}}>{size}m2</p>
-            <p style={{backgroundColor:'red'}}>${price}</p>
+            <h3 style={{backgroundColor:'red'}}>${price}</h3>
+            <p style={{backgroundColor:'red'}}>{size} m2</p>
           </div>
         </div>
       </div>
