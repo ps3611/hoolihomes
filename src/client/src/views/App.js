@@ -8,7 +8,7 @@ import '../styles/App.css';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchHomesList(1,41.385063,2.173404);
+    this.props.fetchHomesList(this.props.queryParameters);
   }
 
   render() {
@@ -25,7 +25,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-
+  queryParameters: state.api.queryParameters,
 });
 
 const mapDispatchToProps = dispatch => ({

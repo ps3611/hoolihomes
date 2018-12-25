@@ -7,16 +7,17 @@ const API_KEY = 'AIzaSyC0u6q2foaWzf3PEJWi9pKWDTnXpL9ENMc';
 
 class MapView extends Component {
   render() {
+    const { homesList, queryParameters } = this.props;
     return (
       <div className='MapView'>
         <Map
-  				homes={this.props.homesList}
+  				homes={homesList}
   				googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=3.exp&libraries=geometry,drawing,places`}
   				loadingElement={<div style={{ height: `100%` }} />}
   				containerElement={<div style={{ height: `100%`, width: `100%` }} />}
   				mapElement={<div style={{ height: `100%` }} />}
-          lat={this.props.lat}
-          lng={this.props.lng}
+          lat={queryParameters.centerLatitude}
+          lng={queryParameters.centerLongitude}
   			/>
       </div>
     );
@@ -25,8 +26,7 @@ class MapView extends Component {
 
 const mapStateToProps = state => ({
   homesList: state.api.homesList,
-  lat: state.api.latitude,
-  lng: state.api.longitude,
+  queryParameters: state.api.queryParameters,
 });
 
 const mapDispatchToProps = dispatch => ({

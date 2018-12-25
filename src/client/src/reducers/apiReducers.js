@@ -3,8 +3,14 @@ import * as api from '../actions/apiActions';
 const initialState = {
   homesList: [],
   pagesLoaded: 0,
-  latitude: 41.385063,
-  longitude: 2.173404,
+  queryParameters: {
+		country: 'es',
+		city: 'barcelona',
+		centerLatitude: 41.385063,
+		centerLongitude: 2.173404,
+		radius: 50000,
+		page: 1,
+	},
   errors: {},
 }
 

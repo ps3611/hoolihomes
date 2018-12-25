@@ -32,7 +32,9 @@ class ListView extends Component {
     this.setState(state => ({
       page: state.page + 1,
     }), () => {
-      this.props.fetchHomesList(this.state.page,41.385063,2.173404);
+      const newQueryParameters = this.props.queryParameters;
+      newQueryParameters.page = this.state.page;
+      this.props.fetchHomesList(newQueryParameters);
     });
    }
 
@@ -63,6 +65,7 @@ class ListView extends Component {
 const mapStateToProps = state => ({
   homesList: state.api.homesList,
   pagesLoaded: state.api.pagesLoaded,
+  queryParameters: state.api.queryParameters,
   loading: state.listViewPage.loading,
 });
 

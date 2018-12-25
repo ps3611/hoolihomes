@@ -16,6 +16,10 @@ const Map = withScriptjs(withGoogleMap((props) => {
   return (
       <GoogleMap
         defaultZoom={14}
+        center={{
+          lat: props.lat,
+          lng: props.lng,
+        }}
         defaultOptions={{
            streetViewControl: false,
            scaleControl: false,
@@ -25,7 +29,6 @@ const Map = withScriptjs(withGoogleMap((props) => {
            rotateControl: false,
            fullscreenControl: false,
          }}
-        center={{ lat: props.lat, lng: props.lng }}
       >
       {markers}
       </GoogleMap>
