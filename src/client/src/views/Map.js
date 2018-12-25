@@ -1,11 +1,9 @@
-import React from "react";
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
+import React from 'react';
+import { withScriptjs, withGoogleMap, GoogleMap } from 'react-google-maps';
 import HomeMarker from './HomeMarker';
 
 const Map = withScriptjs(withGoogleMap((props) => {
-
   const markers = props.homes.map((home,i) => {
-    console.log(home);
     return (
       <HomeMarker
          key={i}
@@ -18,7 +16,16 @@ const Map = withScriptjs(withGoogleMap((props) => {
   return (
       <GoogleMap
         defaultZoom={14}
-        center={{ lat:  42.3601, lng: -71.0589 }}
+        defaultOptions={{
+           streetViewControl: false,
+           scaleControl: false,
+           mapTypeControl: false,
+           panControl: false,
+           zoomControl: true,
+           rotateControl: false,
+           fullscreenControl: false,
+         }}
+        center={{ lat: props.lat, lng: props.lng }}
       >
       {markers}
       </GoogleMap>

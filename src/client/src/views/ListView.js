@@ -32,7 +32,7 @@ class ListView extends Component {
     this.setState(state => ({
       page: state.page + 1,
     }), () => {
-      this.props.fetchHomesList(this.state.page);
+      this.props.fetchHomesList(this.state.page,41.385063,2.173404);
     });
    }
 

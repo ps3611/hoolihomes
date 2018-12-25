@@ -8,7 +8,7 @@ import '../styles/App.css';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchHomesList(1);
+    this.props.fetchHomesList(1,41.385063,2.173404);
   }
 
   render() {

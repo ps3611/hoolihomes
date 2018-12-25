@@ -15,6 +15,8 @@ class MapView extends Component {
   				loadingElement={<div style={{ height: `100%` }} />}
   				containerElement={<div style={{ height: `100%`, width: `100%` }} />}
   				mapElement={<div style={{ height: `100%` }} />}
+          lat={this.props.lat}
+          lng={this.props.lng}
   			/>
       </div>
     );
@@ -23,6 +25,8 @@ class MapView extends Component {
 
 const mapStateToProps = state => ({
   homesList: state.api.homesList,
+  lat: state.api.latitude,
+  lng: state.api.longitude,
 });
 
 const mapDispatchToProps = dispatch => ({

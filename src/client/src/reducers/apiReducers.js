@@ -3,6 +3,8 @@ import * as api from '../actions/apiActions';
 const initialState = {
   homesList: [],
   pagesLoaded: 0,
+  latitude: 41.385063,
+  longitude: 2.173404,
   errors: {},
 }
 
