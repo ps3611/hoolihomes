@@ -5,6 +5,7 @@ class Home extends Component {
   render() {
     const {
       picture,
+      title,
       size,
       price,
     } = this.props;

@@ -43,6 +43,7 @@ class ListView extends Component {
         <Home
           key={i}
           picture={home.thumbnail}
+          title={home.title}
           size={home.size}
           price={home.price}
           pricePerSquareMeter={home.pricePerSquareMeter}
