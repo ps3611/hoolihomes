@@ -25,14 +25,13 @@ class ListView extends Component {
     const homeDivs = document.querySelectorAll('.Home');
     const lastHomeDiv = homeDivs[homeDivs.length - 1];
     const listViewDiv = document.querySelector('.ListView');
-    if (lastHomeDiv.offsetTop < listViewDiv.scrollTop + 1800) this.loadMore();
+    if (lastHomeDiv.offsetTop < listViewDiv.scrollTop + 2000) this.loadMore();
   }
 
   loadMore = () => {
     this.setState(state => ({
       page: state.page + 1,
     }), () => {
-      console.log('fetching..');
       this.props.fetchHomesList(this.state.page);
     });
    }
@@ -63,7 +62,7 @@ class ListView extends Component {
 const mapStateToProps = state => ({
   homesList: state.api.homesList,
   pagesLoaded: state.api.pagesLoaded,
-  loading: state.api.loading,
+  loading: state.listViewPage.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
