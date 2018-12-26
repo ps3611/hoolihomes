@@ -14,7 +14,7 @@ class ListView extends Component {
   }
 
   render() {
-    const { homesList } = this.props;
+    const { homesList, totalPages } = this.props;
     const homes = homesList.map((home, i) => (
         <Home
           key={i}
@@ -38,7 +38,7 @@ class ListView extends Component {
             nextLabel={'>'}
             breakLabel={'...'}
             onPageChange={this.handlePaginationClick}
-            pageCount={10}
+            pageCount={totalPages}
             marginPagesDisplayed={1}
             pageRangeDisplayed={2}
           />
@@ -49,7 +49,7 @@ class ListView extends Component {
 
 const mapStateToProps = state => ({
   homesList: state.api.homesList,
-  pagesLoaded: state.api.pagesLoaded,
+  totalPages: state.api.totalPages,
   queryParameters: state.api.queryParameters,
   loading: state.listViewPage.loading,
 });

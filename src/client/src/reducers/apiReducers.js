@@ -8,9 +8,9 @@ const initialState = {
 		// city: 'barcelona',
 		centerLatitude: 41.385063,
 		centerLongitude: 2.173404,
-    price: [0,2000000],
-    pricePerSquareMeter: [0,3000],
-		size: [0,11950],
+    price: [0,10000000],
+    pricePerSquareMeter: [0,10000],
+		size: [0,10000],
 		radius: 50000,
     page: 1,
 	},
@@ -23,6 +23,7 @@ export default (state=initialState, action) => {
       return {
         ...state,
         homesList: action.payload.homesList,
+        totalPages: action.payload.totalPages,
         errors: {},
       };
     case api.HOMES_LIST_FAILURE:
