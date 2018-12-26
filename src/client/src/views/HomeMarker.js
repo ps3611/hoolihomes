@@ -2,6 +2,12 @@ import React from 'react';
 import { Marker } from 'react-google-maps';
 
 export default class HomeMarker extends React.Component {
+
+  formatLabel = (number) => {
+    const thousands = number/1000;
+    return(`E${thousands}k`);
+  }
+
   render() {
     const icon = {
       url: require('../assets/MarkerGreen.svg'),
@@ -10,10 +16,12 @@ export default class HomeMarker extends React.Component {
         height: 52,
       }
     };
+    const { home, location } = this.props;
+    const label = this.formatLabel(home.price);
     return(
         <Marker
-          position={this.props.location}
-          label={'200kE'}
+          position={location}
+          label={label}
           options={{
             icon: icon
           }}
