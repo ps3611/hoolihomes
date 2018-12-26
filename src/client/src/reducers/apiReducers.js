@@ -2,7 +2,6 @@ import * as api from '../actions/apiActions';
 
 const initialState = {
   homesList: [],
-  pagesLoaded: 0,
   queryParameters: {
 		country: 'es',
 		city: 'barcelona',
@@ -19,8 +18,7 @@ export default (state=initialState, action) => {
     case api.HOMES_LIST_SUCCESS:
       return {
         ...state,
-        homesList: [...state.homesList, ...action.payload.homesList],
-        pagesLoaded: state.pagesLoaded + 1,
+        homesList: action.payload.homesList,
         errors: {},
       };
     case api.HOMES_LIST_FAILURE:

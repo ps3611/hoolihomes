@@ -7,42 +7,15 @@ import '../styles/ListView.css';
 
 class ListView extends Component {
 
-  constructor(props) {
-      super(props);
-      this.state = {
-          page: 1,
-          totalPages: null,
-      };
+  handlePaginationClick = (data) => {
+    const newQueryParameters = this.props.queryParameters;
+    newQueryParameters.page = data.selected+1;
+    this.props.fetchHomesList(newQueryParameters);
   }
-
-  // componentDidMount() {
-  //   document.querySelector('.ListView').addEventListener('scroll', (e) => {
-  //     this.handleScroll(e);
-  //   });
-  // }
-
-  // handleScroll = (e) => {
-  //   if (this.props.loading) return;
-  //   const homeDivs = document.querySelectorAll('.Home');
-  //   const lastHomeDiv = homeDivs[homeDivs.length - 1];
-  //   const listViewDiv = document.querySelector('.ListView');
-  //   if (lastHomeDiv.offsetTop < listViewDiv.scrollTop + 2000) this.loadMore();
-  // }
-
-  loadMore = () => {
-    this.setState(state => ({
-      page: state.page + 1,
-    }), () => {
-      const newQueryParameters = this.props.queryParameters;
-      newQueryParameters.page = this.state.page;
-      this.props.fetchHomesList(newQueryParameters);
-    });
-   }
 
   render() {
     const { homesList } = this.props;
-    const homes = homesList.map((home, i) => {
-      return (
+    const homes = homesList.map((home, i) => (
         <Home
           key={i}
           picture={home.thumbnail}
@@ -53,8 +26,8 @@ class ListView extends Component {
           estimatedPrice={home.estimatedPrice}
           url={home.url}
         />
-      );
-    });
+      )
+    );
     return (
         <div className='ListView'>
           <div className='HomesList'>
@@ -64,13 +37,11 @@ class ListView extends Component {
             previousLabel={'<'}
             nextLabel={'>'}
             breakLabel={'...'}
-            breakClassName={'break-me'}
+            onPageChange={this.handlePaginationClick}
             pageCount={10}
             marginPagesDisplayed={1}
             pageRangeDisplayed={2}
-            containerClassName={'pagination'}
-            subContainerClassName={'pages pagination'}
-            activeClassName={'active'}
+            initialPage={1}
           />
         </div>
     );
