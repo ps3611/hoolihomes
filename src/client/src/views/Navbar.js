@@ -9,20 +9,20 @@ class Navbar extends Component {
           <h1>Hooli Homes</h1>
         </div>
         <div className="NavbarFilters">
+          <div className="Reset">
+            <h3>Reset!</h3>
+          </div>
           <div className="Filter">
             <h3>Price Filter</h3>
           </div>
           <div className="Filter">
-            <h3>Price Per M2</h3>
+            <h3>Price /M2 Filter</h3>
           </div>
           <div className="Filter">
-            <h3>Size</h3>
+            <h3>Size Filter</h3>
           </div>
           <div className="Filter">
             <h3>City Filter</h3>
-          </div>
-          <div className="Filter">
-            <h3>Country Filter</h3>
           </div>
         </div>
       </div>

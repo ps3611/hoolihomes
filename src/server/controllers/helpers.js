@@ -4,7 +4,7 @@ module.exports.createFilter = function createFilter(queryObj) {
     city,
     price,
     size,
-    estimatedPricePercentageDifference,
+    pricePerSquareMeter,
     centerLongitude,
     centerLatitude,
     radius,
@@ -23,10 +23,10 @@ module.exports.createFilter = function createFilter(queryObj) {
   }
   if (price) filter.price = { $gte: price[0], $lte: price[1] };
   if (size) filter.size = { $gte: size[0], $lte: size[1] };
-  if (estimatedPricePercentageDifference) {
-    filter.estimatedPricePercentageDifference = {
-      $gte: estimatedPricePercentageDifference[0],
-      $lte: estimatedPricePercentageDifference[1],
+  if (pricePerSquareMeter) {
+    filter.pricePerSquareMeter = {
+      $gte: pricePerSquareMeter[0],
+      $lte: pricePerSquareMeter[1],
     };
   }
   return filter;
@@ -67,11 +67,11 @@ module.exports.formatHomes = function formatHomes(homesArray) {
 
 module.exports.processQuery = function processQuery(queryObj) {
   const processedObj = {};
-  // processedObj.estimatedPricePercentageDifference = queryObj.estimatedPricePercentageDifference.map(string => parseInt(string, 10));
-  // processedObj.price = queryObj.price.map(string => parseInt(string, 10));
-  // processedObj.size = queryObj.size.map(string => parseInt(string, 10));
-  processedObj.country = queryObj.country;
-  processedObj.city = queryObj.city;
+  processedObj.price = queryObj.price.map(string => parseInt(string, 10));
+  processedObj.pricePerSquareMeter = queryObj.pricePerSquareMeter.map(string => parseInt(string, 10));
+  processedObj.size = queryObj.size.map(string => parseInt(string, 10));
+  // processedObj.country = queryObj.country;
+  // processedObj.city = queryObj.city;
   processedObj.page = parseInt(queryObj.page, 10);
   processedObj.centerLongitude = parseFloat(queryObj.centerLongitude, 10);
   processedObj.centerLatitude = parseFloat(queryObj.centerLatitude, 10);
