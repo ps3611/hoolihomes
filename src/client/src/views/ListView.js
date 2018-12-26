@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactPaginate from 'react-paginate';
 import { fetchHomesList } from '../actions/apiActions';
 import Home from './Home';
 import '../styles/ListView.css';
@@ -14,19 +15,19 @@ class ListView extends Component {
       };
   }
 
-  componentDidMount() {
-    document.querySelector('.ListView').addEventListener('scroll', (e) => {
-      this.handleScroll(e);
-    });
-  }
+  // componentDidMount() {
+  //   document.querySelector('.ListView').addEventListener('scroll', (e) => {
+  //     this.handleScroll(e);
+  //   });
+  // }
 
-  handleScroll = (e) => {
-    if (this.props.loading) return;
-    const homeDivs = document.querySelectorAll('.Home');
-    const lastHomeDiv = homeDivs[homeDivs.length - 1];
-    const listViewDiv = document.querySelector('.ListView');
-    if (lastHomeDiv.offsetTop < listViewDiv.scrollTop + 2000) this.loadMore();
-  }
+  // handleScroll = (e) => {
+  //   if (this.props.loading) return;
+  //   const homeDivs = document.querySelectorAll('.Home');
+  //   const lastHomeDiv = homeDivs[homeDivs.length - 1];
+  //   const listViewDiv = document.querySelector('.ListView');
+  //   if (lastHomeDiv.offsetTop < listViewDiv.scrollTop + 2000) this.loadMore();
+  // }
 
   loadMore = () => {
     this.setState(state => ({
@@ -56,7 +57,21 @@ class ListView extends Component {
     });
     return (
         <div className='ListView'>
-          {homes}
+          <div className='HomesList'>
+            {homes}
+          </div>
+          <ReactPaginate
+            previousLabel={'<'}
+            nextLabel={'>'}
+            breakLabel={'...'}
+            breakClassName={'break-me'}
+            pageCount={10}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={2}
+            containerClassName={'pagination'}
+            subContainerClassName={'pages pagination'}
+            activeClassName={'active'}
+          />
         </div>
     );
   }

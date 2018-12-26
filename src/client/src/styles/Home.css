@@ -3,10 +3,10 @@
   background-color: blue;
   color: white;
   margin: 10px;
-  height: 40%;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  /* overflow: auto; */
+  overflow: scroll;
 }
 
 .HomePicture {

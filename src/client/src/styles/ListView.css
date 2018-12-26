@@ -1,9 +1,25 @@
 .ListView {
   flex: 1;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   background-color: green;
   color: white;
   overflow: scroll;
+  padding: 10px;
+}
+
+.HomesList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: scroll;
+  background-color: yellow;
+}
+
+ul {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+li {
+    display: inline-block;
 }
