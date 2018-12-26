@@ -2,13 +2,14 @@ import * as api from '../actions/apiActions';
 
 const initialState = {
   homesList: [],
+  totalPages: 0,
   queryParameters: {
 		country: 'es',
 		city: 'barcelona',
 		centerLatitude: 41.385063,
 		centerLongitude: 2.173404,
 		radius: 50000,
-		page: 1,
+    page: 1,
 	},
   errors: {},
 }

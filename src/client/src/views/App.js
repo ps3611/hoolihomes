@@ -7,7 +7,7 @@ import MapView from './MapView';
 import '../styles/App.css';
 
 class App extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchHomesList(this.props.queryParameters);
   }
 

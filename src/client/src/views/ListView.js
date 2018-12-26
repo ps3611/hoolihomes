@@ -41,7 +41,6 @@ class ListView extends Component {
             pageCount={10}
             marginPagesDisplayed={1}
             pageRangeDisplayed={2}
-            initialPage={1}
           />
         </div>
     );
