@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Map from './Map';
-import '../styles/MapView.css';
+import '../../styles/MapView.css';
 
 const API_KEY = 'AIzaSyC0u6q2foaWzf3PEJWi9pKWDTnXpL9ENMc';
 

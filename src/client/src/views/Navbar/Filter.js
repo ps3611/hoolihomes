@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ToolTip from 'react-portal-tooltip';
-import '../styles/Filter.css';
+import '../../styles/Filter.css';
 
 class Filter extends Component {
   state = {

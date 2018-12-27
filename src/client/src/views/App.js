@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchHomesList } from '../actions/apiActions';
-import Navbar from './Navbar';
-import ListView from './ListView';
-import MapView from './MapView';
+import Navbar from './Navbar/Navbar';
+import ListView from './ListView/ListView';
+import MapView from './MapView/MapView';
 import '../styles/App.css';
 
 class App extends Component {

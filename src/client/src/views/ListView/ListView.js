@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
-import { fetchHomesList } from '../actions/apiActions';
+import { fetchHomesList } from '../../actions/apiActions';
 import Home from './Home';
-import '../styles/ListView.css';
+import '../../styles/ListView.css';
 
 class ListView extends Component {
 

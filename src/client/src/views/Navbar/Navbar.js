@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectPriceRange, selectM2PriceRange, selectSizeRange } from '../actions/settingsActions';
+import { selectPriceRange, selectM2PriceRange, selectSizeRange } from '../../actions/settingsActions';
 import Filter from './Filter';
 import SliderComponent from './SliderComponent';
-import '../styles/Navbar.css';
+import '../../styles/Navbar.css';
 
 class Navbar extends Component {
 
