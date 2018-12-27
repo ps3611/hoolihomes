@@ -4,6 +4,7 @@ import { fetchHomesList } from '../../actions/apiActions';
 import { selectPriceRange, selectM2PriceRange, selectSizeRange } from '../../actions/settingsActions';
 import Filter from './Filter';
 import SliderComponent from './SliderComponent';
+import SelectCity from './SelectCity';
 import '../../styles/Navbar.css';
 
 class Navbar extends Component {
@@ -73,7 +74,9 @@ class Navbar extends Component {
           <Filter
             id='city'
             label='Select City'
-            popupContent={'Select City!'}
+            popupContent={
+              <SelectCity />
+            }
           />
         </div>
       </div>

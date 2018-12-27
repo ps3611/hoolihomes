@@ -7,7 +7,7 @@ const initialState = {
     price: [0,10000000],
     pricePerSquareMeter: [0,20000],
     size: [0,500],
-    radius: 50000,
+    radius: 10000, // in meters
     page: 1,
   },
   errors: {},
