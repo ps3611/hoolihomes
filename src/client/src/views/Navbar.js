@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
-import ToolTip from 'react-portal-tooltip';
 import Filter from './Filter';
+import SliderComponent from './SliderComponent';
 import '../styles/Navbar.css'
 
 class Navbar extends Component {
-
-  state = {
-     isTooltipActive: false
-  }
-
-  showTooltip() {
-     this.setState({isTooltipActive: true})
-  }
-
-  hideTooltip() {
-     this.setState({isTooltipActive: false})
-  }
 
   render() {
     return (
@@ -30,22 +18,37 @@ class Navbar extends Component {
           <Filter
             id='price'
             label='Price Filter'
-            popupLabel='Select Price Range!'
+            popupContent={
+              <SliderComponent
+                title='The average price is EXk'
+              />
+            }
           />
           <Filter
             id='m2'
             label='Price /M2 Filter'
-            popupLabel='Select M2 Price Range!'
+            popupContent={
+              <SliderComponent
+                title='The average m2 price is EXk'
+              />
+            }
           />
           <Filter
             id='size'
             label='Size Filter'
-            popupLabel='Select Size Range!'
+            popupContent={
+              <SliderComponent
+                title='The average size is EXk'
+              />
+            }
           />
           <Filter
             id='city'
-            label='City Filter'
-            popupLabel='Select City!'
+            label='Select City'
+            popupContent={
+              <SliderComponent
+              />
+            }
           />
         </div>
       </div>

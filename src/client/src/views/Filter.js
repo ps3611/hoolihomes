@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ToolTip from 'react-portal-tooltip';
-import '../styles/Filter.css'
+import '../styles/Filter.css';
 
 class Filter extends Component {
   state = {
@@ -16,7 +16,7 @@ class Filter extends Component {
   }
 
   render() {
-    const { id, label, popupLabel } = this.props;
+    const { id, label, popupContent } = this.props;
     return (
       <div
         id={`${id}`}
@@ -31,7 +31,7 @@ class Filter extends Component {
           position='bottom'
           arrow='left'
         >
-          { popupLabel }
+          { popupContent }
         </ToolTip>
       </div>
     );
