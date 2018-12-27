@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import '../../styles/SelectCity.css';
-
-const cityList = ['Barcelona', 'Paris', 'Montpelier', 'Nice', 'London', 'Vence', 'Rennes', 'Marseille'];
+const { cities } = require('./cities.json');
 
 class SelectCity extends Component {
   render() {
-    const cities = cityList.map(city => (
-      <div className='City'>
-        {city}
+    const className = cities.length > 5 ? 'SelectCity SelectCityLong' : 'SelectCity';
+    const cityList = cities.map((city,i) => (
+      <div
+        key={i}
+        className='City'
+      >
+        {city.name}
       </div>
     ));
     return (
-      <div className='SelectCity'>
-        {cities}
+      <div className={className}>
+        {cityList}
       </div>
     );
   }

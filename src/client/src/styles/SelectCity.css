@@ -2,6 +2,11 @@
   padding: 10px;
 }
 
+.SelectCityLong {
+  height: 300px;
+  overflow: scroll;
+}
+
 .City {
   padding: 10px;
 }

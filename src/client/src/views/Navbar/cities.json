@@ -1,77 +1,77 @@
 {
-  "nestoriaParams" : [
+  "cities" : [
     {
-       "city": "Roma",
+       "name": "Roma",
        "lat": 41.89193,
        "lng": 12.51133
      },
      {
-       "city": "Genova",
+       "name": "Genova",
        "lat": 46.20222,
        "lng": 6.14569
      },
      {
-       "city": "Naples",
+       "name": "Naples",
        "lat": 40.85631,
        "lng": 14.24641
      },
      {
-       "city": "Palermo",
+       "name": "Palermo",
        "lat": 38.13205,
        "lng": 13.33561
      },
      {
-       "city": "Cagliari",
+       "name": "Cagliari",
        "lat": 39.23054,
        "lng": 9.11917
      },
      {
-       "city": "Barcelona",
+       "name": "Barcelona",
        "lat": 41.385063,
        "lng": 2.173404
      },
      {
-       "city": "Valencia",
+       "name": "Valencia",
        "lat": 39.46975,
        "lng": -0.37739
      },
      {
-       "city": "Murcia",
+       "name": "Murcia",
        "lat": 37.98704,
        "lng": -1.13004
      },
      {
-       "city": "Malaga",
+       "name": "Malaga",
        "lat": 36.72016,
        "lng": -4.42034
      },
      {
-       "city": "Palma De Mallorca",
+       "name": "Palma De Mallorca",
        "lat": 39.56939,
        "lng": 2.65024
      },
      {
-       "city": "Nice",
+       "name": "Nice",
        "lat": 43.70313,
        "lng": 7.26608
      },
      {
-       "city": "Marseille",
+       "name": "Marseille",
        "lat": 43.29695,
        "lng": 5.38107
      },
      {
-       "city": "Ajaccio",
+       "name": "Ajaccio",
        "lat": 41.92723,
        "lng": 8.73462
      },
      {
-       "city": "Cannes",
+       "name": "Cannes",
        "lat": 43.55135,
        "lng": 7.01275
      },
      {
-       "city": "Montpellier",
+       "name": "Montpellier",
        "lat": 43.61092,
        "lng": 3.87723
      }
