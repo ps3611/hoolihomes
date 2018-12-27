@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { selectPriceRange, selectM2PriceRange, selectSizeRange } from '../actions/settingsActions';
 import Filter from './Filter';
 import SliderComponent from './SliderComponent';
 import '../styles/Navbar.css';
@@ -7,7 +8,14 @@ import '../styles/Navbar.css';
 class Navbar extends Component {
 
   render() {
-    const { priceValues, m2PriceValues, sizeValues} = this.props;
+    const {
+      priceValues,
+      m2PriceValues,
+      sizeValues,
+      selectPriceRange,
+      selectM2PriceRange,
+      selectSizeRange,
+    } = this.props;
     return (
       <div className='Navbar'>
         <div className='NavbarLogo'>
@@ -25,6 +33,7 @@ class Navbar extends Component {
                 key={1}
                 title='The average price is EXk'
                 values={priceValues}
+                updateValues={selectPriceRange}
                 info={priceSliderInfo}
               />
             }
@@ -37,6 +46,7 @@ class Navbar extends Component {
                 key={2}
                 title='The average m2 price is EXk'
                 values={m2PriceValues}
+                updateValues={selectM2PriceRange}
                 info={m2PriceSliderInfo}
               />
             }
@@ -49,6 +59,7 @@ class Navbar extends Component {
                 key={3}
                 title='The average size is EXk'
                 values={sizeValues}
+                updateValues={selectSizeRange}
                 info={sizeSliderInfo}
               />
             }
@@ -70,7 +81,6 @@ const priceSliderInfo = {
   min: 0,
   max: 2000000,
   step: 100000,
-  // defaultValue: [0,2000000],
   marks: {
     0: <strong>0</strong>,
     1000000: 1,
@@ -82,7 +92,6 @@ const m2PriceSliderInfo = {
   min: 0,
   max: 20000,
   step: 10000,
-  // defaultValue: [0,20000],
   marks: {
     0: <strong>0</strong>,
     10000: 1,
@@ -94,7 +103,6 @@ const sizeSliderInfo = {
   	min: 0,
   	max: 500,
   	step: 50,
-  	// defaultValue: [0,500],
     marks: {
       0: <strong>0</strong>,
       100: 1,
@@ -109,7 +117,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  selectPriceRange: range => dispatch(selectPriceRange(range)),
+  selectM2PriceRange: range => dispatch(selectM2PriceRange(range)),
+  selectSizeRange: range => dispatch(selectSizeRange(range)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -4,20 +4,17 @@ import { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 class SliderComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: this.props.values,
-    };
+
+  state = {
+    value: this.props.values,
   }
 
   handleAfterChange = value => {
-    console.log('change done!');
+    this.props.updateValues(value);
   }
 
   render() {
     const { title, info } = this.props;
-    console.log(this.state.value);
     return (
       <div className='SliderComponent'>
         <div className='SliderTitle'>
