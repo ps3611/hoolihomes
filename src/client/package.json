@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "qs": "^6.6.0",
+    "rc-slider": "^8.6.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-google-maps": "^9.4.5",
