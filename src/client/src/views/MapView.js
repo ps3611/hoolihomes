@@ -26,7 +26,7 @@ class MapView extends Component {
 
 const mapStateToProps = state => ({
   homesList: state.api.homesList,
-  queryParameters: state.api.queryParameters,
+  queryParameters: state.settings.queryParameters,
 });
 
 const mapDispatchToProps = dispatch => ({

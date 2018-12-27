@@ -50,7 +50,7 @@ class ListView extends Component {
 const mapStateToProps = state => ({
   homesList: state.api.homesList,
   totalPages: state.api.totalPages,
-  queryParameters: state.api.queryParameters,
+  queryParameters: state.settings.queryParameters,
   loading: state.listViewPage.loading,
 });
 

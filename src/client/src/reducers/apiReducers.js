@@ -3,17 +3,6 @@ import * as api from '../actions/apiActions';
 const initialState = {
   homesList: [],
   totalPages: 0,
-  queryParameters: {
-		// country: 'es',
-		// city: 'barcelona',
-		centerLatitude: 41.385063,
-		centerLongitude: 2.173404,
-    price: [0,10000000],
-    pricePerSquareMeter: [0,10000],
-		size: [0,10000],
-		radius: 50000,
-    page: 1,
-	},
   errors: {},
 }
 
