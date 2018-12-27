@@ -48,7 +48,7 @@ class Navbar extends Component {
               <SliderComponent
                 key={3}
                 title='The average size is EXk'
-                values={m2PriceValues}
+                values={sizeValues}
                 info={sizeSliderInfo}
               />
             }
