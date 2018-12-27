@@ -4,13 +4,13 @@ import 'rc-slider/assets/index.css';
 import '../../styles/SliderComponent.css';
 
 class SliderComponent extends Component {
-
   state = {
     value: this.props.values,
   }
 
   handleAfterChange = value => {
     this.props.updateValues(value);
+    this.props.fetchHomesList(this.props.queryParameters);
   }
 
   render() {
@@ -32,9 +32,6 @@ class SliderComponent extends Component {
             onChange={value => this.setState({ value })}
             onAfterChange={this.handleAfterChange}
           />
-        </div>
-        <div className='SliderApply'>
-          <h4>Apply</h4>
         </div>
       </div>
     );

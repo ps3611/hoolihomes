@@ -29,7 +29,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchHomesList: page => dispatch(fetchHomesList(page)),
+  fetchHomesList: queryParameters => dispatch(fetchHomesList(queryParameters)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
