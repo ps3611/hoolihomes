@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchHomesList } from '../../actions/apiActions';
-import { selectPriceRange, selectM2PriceRange, selectSizeRange } from '../../actions/settingsActions';
+import { selectPriceRange, selectM2PriceRange, selectSizeRange, selectCity } from '../../actions/settingsActions';
 import Filter from './Filter';
 import SliderComponent from './SliderComponent';
 import SelectCity from './SelectCity';
@@ -11,11 +11,13 @@ class Navbar extends Component {
 
   render() {
     const {
+      selectedCity,
       fetchHomesList,
       queryParameters,
       selectPriceRange,
       selectM2PriceRange,
       selectSizeRange,
+      selectCity,
     } = this.props;
     return (
       <div className='Navbar'>
@@ -73,9 +75,13 @@ class Navbar extends Component {
           />
           <Filter
             id='city'
-            label='Select City'
+            label={selectedCity}
             popupContent={
-              <SelectCity />
+              <SelectCity
+                updateValues={selectCity}
+                fetchHomesList={fetchHomesList}
+                queryParameters={queryParameters}
+              />
             }
           />
         </div>
@@ -88,6 +94,7 @@ const mapStateToProps = state => ({
   priceValues: state.settings.queryParameters.price,
   m2PriceValues: state.settings.queryParameters.pricePerSquareMeter,
   sizeValues: state.settings.queryParameters.size,
+  selectedCity: state.settings.selectedCity,
   queryParameters: state.settings.queryParameters,
 });
 
@@ -95,6 +102,7 @@ const mapDispatchToProps = dispatch => ({
   selectPriceRange: range => dispatch(selectPriceRange(range)),
   selectM2PriceRange: range => dispatch(selectM2PriceRange(range)),
   selectSizeRange: range => dispatch(selectSizeRange(range)),
+  selectCity: city => dispatch(selectCity(city)),
   fetchHomesList: queryParameters => dispatch(fetchHomesList(queryParameters)),
 });
 

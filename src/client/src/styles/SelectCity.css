@@ -7,6 +7,15 @@
   overflow: scroll;
 }
 
+.Hover {
+  background-color: gray;
+}
+
+.Active {
+  background-color: red;
+  color: white
+}
+
 .City {
   padding: 10px;
 }

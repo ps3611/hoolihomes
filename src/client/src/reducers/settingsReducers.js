@@ -1,6 +1,7 @@
 import * as settings from '../actions/settingsActions';
 
 const initialState = {
+  selectedCity: 'Barcelona',
   queryParameters: {
     centerLatitude: 41.385063,
     centerLongitude: 2.173404,
@@ -32,6 +33,14 @@ export default (state = initialState, action) => {
       newQueryParameters.size = action.payload;
       return {
         ...state,
+        queryParameters: newQueryParameters,
+      };
+    case settings.SELECT_CITY:
+      newQueryParameters.centerLatitude = action.payload.lat;
+      newQueryParameters.centerLongitude = action.payload.lng;
+      return {
+        ...state,
+        selectedCity: action.payload.name,
         queryParameters: newQueryParameters,
       };
     default:
