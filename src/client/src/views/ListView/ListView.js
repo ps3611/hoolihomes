@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import { fetchHomesList } from '../../actions/apiActions';
 import Home from './Home';
+import EmptyList from './EmptyList';
 import '../../styles/ListView.css';
 
 class ListView extends Component {
@@ -15,6 +16,14 @@ class ListView extends Component {
 
   render() {
     const { homesList, totalPages } = this.props;
+    console.log(homesList.length);
+    if (homesList.length === 0) {
+      return (
+        <div className='ListView'>
+          <EmptyList />
+        </div>
+      )
+    }
     const homes = homesList.map((home, i) => (
         <Home
           key={i}
