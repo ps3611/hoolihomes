@@ -8,6 +8,19 @@ import SelectCity from './SelectCity';
 import '../../styles/Navbar.css';
 
 class Navbar extends Component {
+
+  formatPriceLabel = (queryParameters) => {
+    return `€${queryParameters.price[0]/1000}k-€${queryParameters.price[1]/1000}k`;
+  }
+
+  formatM2PriceLabel = (queryParameters) => {
+    return `€${queryParameters.pricePerSquareMeter[0]/1000}k/m2-€${queryParameters.pricePerSquareMeter[1]/1000}k/m2`;
+  }
+
+  formatSizeLabel = (queryParameters) => {
+    return `${queryParameters.size[0]}m2-${queryParameters.size[1]}m2`;
+  }
+
   render() {
     const {
       selectedCity,
@@ -21,9 +34,9 @@ class Navbar extends Component {
       m2PriceFilterChanged,
       sizeFilterChanged,
     } = this.props;
-    const priceLabel = priceFilterChanged ? `€${queryParameters.price[0]/1000}k-€${queryParameters.price[1]/1000}k` : 'Price';
-    const m2PriceLabel = m2PriceFilterChanged ? `€${queryParameters.price[0]}/m2 -${queryParameters.price[1]}/m2` : 'm2 Price';
-    const sizeLabel = sizeFilterChanged ? String(queryParameters.size) : 'Size';
+    const priceLabel = priceFilterChanged ? this.formatPriceLabel(queryParameters) : 'Price';
+    const m2PriceLabel = m2PriceFilterChanged ? this.formatM2PriceLabel(queryParameters) : 'm2 Price';
+    const sizeLabel = sizeFilterChanged ? this.formatSizeLabel(queryParameters) : 'Size';
     return (
       <div className='Navbar'>
         <div className='NavbarLogo'>
