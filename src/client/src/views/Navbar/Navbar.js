@@ -8,7 +8,6 @@ import SelectCity from './SelectCity';
 import '../../styles/Navbar.css';
 
 class Navbar extends Component {
-
   render() {
     const {
       selectedCity,
@@ -22,9 +21,9 @@ class Navbar extends Component {
       m2PriceFilterChanged,
       sizeFilterChanged,
     } = this.props;
-    const priceLabel = priceFilterChanged ? String(queryParameters.price) : 'price';
-    const m2PriceLabel = m2PriceFilterChanged ? String(queryParameters.pricePerSquareMeter) : 'm2';
-    const sizeLabel = sizeFilterChanged ? String(queryParameters.pricePerSquareMeter) : 'size';
+    const priceLabel = priceFilterChanged ? `€${queryParameters.price[0]/1000}k-€${queryParameters.price[1]/1000}k` : 'Price';
+    const m2PriceLabel = m2PriceFilterChanged ? `€${queryParameters.price[0]}/m2 -${queryParameters.price[1]}/m2` : 'm2 Price';
+    const sizeLabel = sizeFilterChanged ? String(queryParameters.size) : 'Size';
     return (
       <div className='Navbar'>
         <div className='NavbarLogo'>
@@ -40,7 +39,7 @@ class Navbar extends Component {
             popupContent={
               <SliderComponent
                 key={1}
-                title='The average price is EXk'
+                title='The average price is €Xk'
                 values={queryParameters.price}
                 updateValues={selectPriceRange}
                 info={priceSliderInfo}
@@ -55,7 +54,7 @@ class Navbar extends Component {
             popupContent={
               <SliderComponent
                 key={2}
-                title='The average m2 price is EXk'
+                title='The average m2 price is €Xk'
                 values={queryParameters.pricePerSquareMeter}
                 updateValues={selectM2PriceRange}
                 info={m2PriceSliderInfo}
@@ -70,7 +69,7 @@ class Navbar extends Component {
             popupContent={
               <SliderComponent
                 key={3}
-                title='The average size is EXk'
+                title='The average size is €Xk'
                 values={queryParameters.size}
                 updateValues={selectSizeRange}
                 info={sizeSliderInfo}
