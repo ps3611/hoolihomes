@@ -18,7 +18,7 @@ class Home extends Component {
             <h3 style={{backgroundColor:'red'}}>{title}</h3>
           </div>
           <div className='HomeDetails'>
-            <h3 style={{backgroundColor:'red'}}>${price}</h3>
+            <h3 style={{backgroundColor:'red'}}>{price}€</h3>
             <p style={{backgroundColor:'red'}}>{size} m2</p>
           </div>
         </div>
