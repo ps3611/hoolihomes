@@ -5,7 +5,7 @@ export default class HomeMarker extends React.Component {
 
   formatLabel = (number) => {
     const thousands = number/1000;
-    return(`E${thousands}k`);
+    return(`${thousands}k€`);
   }
 
   render() {
