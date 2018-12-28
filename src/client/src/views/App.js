@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchHomesList, fetchCityInfo } from '../actions/apiActions';
+import { fetchHomesList } from '../actions/apiActions';
 import Navbar from './Navbar/Navbar';
 import ListView from './ListView/ListView';
 import MapView from './MapView/MapView';
@@ -9,7 +9,6 @@ import '../styles/App.css';
 class App extends Component {
   componentWillMount() {
     this.props.fetchHomesList(this.props.queryParameters);
-    this.props.fetchCityInfo(this.props.queryParameters);
   }
 
   render() {
@@ -31,7 +30,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchHomesList: queryParameters => dispatch(fetchHomesList(queryParameters)),
-  fetchCityInfo: queryParameters => dispatch(fetchCityInfo(queryParameters)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
