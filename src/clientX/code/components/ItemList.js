@@ -8,7 +8,7 @@ function ItemList({itemList}){
 			key={i}
 			url={home.url}
 			thumbnail={home.thumbnail}
-			pricePerSquareMeter={home.pricePerSquareMeter}
+			m2Price={home.m2Price}
 			price={home.price}
 			estimatedPrice={home.estimatedPrice}
 			size={home.size}

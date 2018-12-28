@@ -22,7 +22,7 @@ class ListView extends Component {
           title={home.title}
           size={home.size}
           price={home.price}
-          pricePerSquareMeter={home.pricePerSquareMeter}
+          m2Price={home.m2Price}
           estimatedPrice={home.estimatedPrice}
           url={home.url}
         />

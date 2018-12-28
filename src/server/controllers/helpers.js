@@ -4,7 +4,7 @@ module.exports.createFilter = function createFilter(queryObj) {
     city,
     price,
     size,
-    pricePerSquareMeter,
+    m2Price,
     centerLongitude,
     centerLatitude,
     radius,
@@ -23,10 +23,10 @@ module.exports.createFilter = function createFilter(queryObj) {
   }
   if (price) filter.price = { $gte: price[0], $lte: price[1] };
   if (size) filter.size = { $gte: size[0], $lte: size[1] };
-  if (pricePerSquareMeter) {
-    filter.pricePerSquareMeter = {
-      $gte: pricePerSquareMeter[0],
-      $lte: pricePerSquareMeter[1],
+  if (m2Price) {
+    filter.m2Price = {
+      $gte: m2Price[0],
+      $lte: m2Price[1],
     };
   }
   return filter;
@@ -36,7 +36,7 @@ module.exports.avgCalc = function avgCalc(homesArray) {
   let len = 0;
   const average = homesArray
     .reduce((acc, el) => {
-      const { pricePerSquareMeter: sub } = el;
+      const { m2Price: sub } = el;
       if (Number.isFinite(sub)) {
         len += 1;
         return acc + sub;
@@ -58,7 +58,7 @@ module.exports.formatHomes = function formatHomes(homesArray) {
     formattedObj.longitude = obj.loc.coordinates[0];
     formattedObj.latitude = obj.loc.coordinates[1];
     formattedObj.url = obj.url;
-    formattedObj.pricePerSquareMeter = obj.pricePerSquareMeter;
+    formattedObj.m2Price = obj.m2Price;
     formattedObj.estimatedPrice = obj.estimatedPrice;
     formattedObj.estimatedPricePercentageDifference = obj.estimatedPricePercentageDifference;
     return formattedObj;
@@ -68,7 +68,7 @@ module.exports.formatHomes = function formatHomes(homesArray) {
 module.exports.processQuery = function processQuery(queryObj) {
   const processedObj = {};
   processedObj.price = queryObj.price.map(string => parseInt(string, 10));
-  processedObj.pricePerSquareMeter = queryObj.pricePerSquareMeter.map(string => parseInt(string, 10));
+  processedObj.m2Price = queryObj.m2Price.map(string => parseInt(string, 10));
   processedObj.size = queryObj.size.map(string => parseInt(string, 10));
   // processedObj.country = queryObj.country;
   // processedObj.city = queryObj.city;

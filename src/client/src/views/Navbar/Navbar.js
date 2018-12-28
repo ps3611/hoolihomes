@@ -14,7 +14,7 @@ class Navbar extends Component {
   }
 
   formatM2PriceLabel = (queryParameters) => {
-    return `€${queryParameters.pricePerSquareMeter[0]/1000}k/m2-€${queryParameters.pricePerSquareMeter[1]/1000}k/m2`;
+    return `€${queryParameters.m2Price[0]/1000}k/m2-€${queryParameters.m2Price[1]/1000}k/m2`;
   }
 
   formatSizeLabel = (queryParameters) => {
@@ -68,7 +68,7 @@ class Navbar extends Component {
               <SliderComponent
                 key={2}
                 title='The average m2 price is €Xk'
-                values={queryParameters.pricePerSquareMeter}
+                values={queryParameters.m2Price}
                 updateValues={selectM2PriceRange}
                 info={m2PriceSliderInfo}
                 fetchHomesList={fetchHomesList}
@@ -110,7 +110,7 @@ class Navbar extends Component {
 
 const mapStateToProps = state => ({
   priceValues: state.settings.queryParameters.price,
-  m2PriceValues: state.settings.queryParameters.pricePerSquareMeter,
+  m2PriceValues: state.settings.queryParameters.m2Price,
   sizeValues: state.settings.queryParameters.size,
   selectedCity: state.settings.selectedCity,
   priceFilterChanged: state.settings.priceFilterChanged,

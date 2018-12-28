@@ -46,7 +46,7 @@ const homeSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  pricePerSquareMeter: {
+  m2Price: {
     type: Number,
     required: true,
   },

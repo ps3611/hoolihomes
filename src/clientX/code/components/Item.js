@@ -3,7 +3,7 @@ import '../App.css'
 import './Item.css'
 
 
-function Item({url, thumbnail, estimatedPricePercentageDifference, pricePerSquareMeter,
+function Item({url, thumbnail, estimatedPricePercentageDifference, m2Price,
 	price, estimatedPrice, size, city}){
 	return (
 		<a href={url}>
@@ -29,7 +29,7 @@ function Item({url, thumbnail, estimatedPricePercentageDifference, pricePerSquar
 										<strong>Our Estimation:</strong> €{estimatedPrice}
 									</div>
 									<div className="column">
-										<strong>m² Price:</strong> €{pricePerSquareMeter}
+										<strong>m² Price:</strong> €{m2Price}
 									</div>
 									<div className="column">
 										<strong>Discount:</strong> {estimatedPricePercentageDifference}%
