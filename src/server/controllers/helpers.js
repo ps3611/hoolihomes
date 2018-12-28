@@ -32,20 +32,6 @@ module.exports.createFilter = function createFilter(queryObj) {
   return filter;
 };
 
-module.exports.avgCalc = function avgCalc(homesArray) {
-  let len = 0;
-  const average = homesArray
-    .reduce((acc, el) => {
-      const { m2Price: sub } = el;
-      if (Number.isFinite(sub)) {
-        len += 1;
-        return acc + sub;
-      }
-      return acc;
-    }, 0) / len;
-  return Math.round(average);
-};
-
 module.exports.formatHomes = function formatHomes(homesArray) {
   return homesArray.map((obj) => {
     const formattedObj = {};
@@ -77,4 +63,13 @@ module.exports.processQuery = function processQuery(queryObj) {
   processedObj.centerLatitude = parseFloat(queryObj.centerLatitude, 10);
   processedObj.radius = parseInt(queryObj.radius, 10);
   return processedObj;
+};
+
+module.exports.aggregator = function aggregator(homesArray, calcType, field) {
+  if (homesArray.length === 0) return 0;
+  const newArray = homesArray.map(home => home[field]);
+  if (calcType === 'avg') return Math.round(newArray.reduce((a, b) => a + b) / newArray.length);
+  else if (calcType === 'min') return Math.min(...newArray);
+  else if (calcType === 'max') return Math.max(...newArray);
+  return 0;
 };

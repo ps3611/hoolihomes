@@ -1,7 +1,7 @@
 const shuffleSeed = require('shuffle-seed');
 const Home = require('../models/homeModel');
 const {
-  avgCalc,
+  aggregator,
   createFilter,
   formatHomes,
   processQuery,
@@ -23,7 +23,15 @@ exports.getAllHomes = async (req, res) => {
     page,
     totalPages,
     totalResults: allHomes.length,
-    averagem2Price: avgCalc(allHomes),
+    minPrice: aggregator(allHomes, 'min', 'price'),
+    avgPrice: aggregator(allHomes, 'avg', 'price'),
+    maxPrice: aggregator(allHomes, 'max', 'price'),
+    minSize: aggregator(allHomes, 'min', 'size'),
+    avgSize: aggregator(allHomes, 'avg', 'size'),
+    maxSize: aggregator(allHomes, 'max', 'size'),
+    minM2Price: aggregator(allHomes, 'min', 'm2Price'),
+    avgM2Price: aggregator(allHomes, 'avg', 'm2Price'),
+    maxM2Price: aggregator(allHomes, 'max', 'm2Price'),
     homesList: formatHomes(responseHomes),
   };
   res.json(response);
