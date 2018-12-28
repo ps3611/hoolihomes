@@ -18,7 +18,13 @@ class Navbar extends Component {
       selectM2PriceRange,
       selectSizeRange,
       selectCity,
+      priceFilterChanged,
+      m2PriceFilterChanged,
+      sizeFilterChanged,
     } = this.props;
+    const priceLabel = priceFilterChanged ? String(queryParameters.price) : 'price';
+    const m2PriceLabel = m2PriceFilterChanged ? String(queryParameters.pricePerSquareMeter) : 'm2';
+    const sizeLabel = sizeFilterChanged ? String(queryParameters.pricePerSquareMeter) : 'size';
     return (
       <div className='Navbar'>
         <div className='NavbarLogo'>
@@ -30,7 +36,7 @@ class Navbar extends Component {
           </div>
           <Filter
             id='price'
-            label='Price Filter'
+            label={priceLabel}
             popupContent={
               <SliderComponent
                 key={1}
@@ -45,7 +51,7 @@ class Navbar extends Component {
           />
           <Filter
             id='m2'
-            label='M2 Price Filter'
+            label={m2PriceLabel}
             popupContent={
               <SliderComponent
                 key={2}
@@ -60,7 +66,7 @@ class Navbar extends Component {
           />
           <Filter
             id='size'
-            label='Size Filter'
+            label={sizeLabel}
             popupContent={
               <SliderComponent
                 key={3}
@@ -95,6 +101,9 @@ const mapStateToProps = state => ({
   m2PriceValues: state.settings.queryParameters.pricePerSquareMeter,
   sizeValues: state.settings.queryParameters.size,
   selectedCity: state.settings.selectedCity,
+  priceFilterChanged: state.settings.priceFilterChanged,
+  m2PriceFilterChanged: state.settings.m2PriceFilterChanged,
+  sizeFilterChanged: state.settings.sizeFilterChanged,
   queryParameters: state.settings.queryParameters,
 });
 

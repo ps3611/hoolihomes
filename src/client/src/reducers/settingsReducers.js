@@ -2,6 +2,9 @@ import * as settings from '../actions/settingsActions';
 
 const initialState = {
   selectedCity: 'Barcelona',
+  priceFilterChanged: false,
+  m2PriceFilterChanged: false,
+  sizeFilterChanged: false,
   queryParameters: {
     centerLatitude: 41.385063,
     centerLongitude: 2.173404,
@@ -22,18 +25,21 @@ export default (state = initialState, action) => {
       return {
         ...state,
         queryParameters: newQueryParameters,
+        priceFilterChanged: true,
       };
     case settings.SELECT_M2PRICE_RANGE:
       newQueryParameters.pricePerSquareMeter = action.payload;
       return {
         ...state,
         queryParameters: newQueryParameters,
+        m2PriceFilterChanged: true,
       };
     case settings.SELECT_SIZE_RANGE:
       newQueryParameters.size = action.payload;
       return {
         ...state,
         queryParameters: newQueryParameters,
+        sizeFilterChanged: true,
       };
     case settings.SELECT_CITY:
       newQueryParameters.centerLatitude = action.payload.lat;
