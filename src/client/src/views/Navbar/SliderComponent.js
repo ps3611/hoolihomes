@@ -14,7 +14,7 @@ class SliderComponent extends Component {
   }
 
   render() {
-    const { title, info } = this.props;
+    const { title, min, max, step } = this.props;
     return (
       <div className='SliderComponent'>
         <div className='SliderTitle'>
@@ -22,9 +22,9 @@ class SliderComponent extends Component {
         </div>
         <div className='SliderRange'>
           <Range
-            min={info.min}
-            max={info.max}
-            step={info.step}
+            min={min}
+            max={max}
+            step={step}
             value={this.state.value}
             included={false}
             allowCross={false}

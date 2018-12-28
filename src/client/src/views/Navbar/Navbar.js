@@ -55,7 +55,9 @@ class Navbar extends Component {
                 title={`The average price is ${Math.round(this.props.avgPrice/1000)}k€`}
                 values={queryParameters.price}
                 updateValues={selectPriceRange}
-                info={priceSliderInfo}
+                min={this.props.minPrice}
+                max={this.props.maxPrice}
+                step={1000}
                 fetchHomesList={fetchHomesList}
                 queryParameters={queryParameters}
               />
@@ -70,7 +72,9 @@ class Navbar extends Component {
                 title={`The average size is ${this.props.avgSize}m2`}
                 values={queryParameters.size}
                 updateValues={selectSizeRange}
-                info={sizeSliderInfo}
+                min={this.props.minSize}
+                max={this.props.maxSize}
+                step={1}
                 fetchHomesList={fetchHomesList}
                 queryParameters={queryParameters}
               />
@@ -85,7 +89,9 @@ class Navbar extends Component {
               title={`The average m2 price is ${this.props.avgM2Price}€`}
               values={queryParameters.m2Price}
               updateValues={selectM2PriceRange}
-              info={m2PriceSliderInfo}
+              min={this.props.minM2Price}
+              max={this.props.maxM2Price}
+              step={10}
               fetchHomesList={fetchHomesList}
               queryParameters={queryParameters}
               />
@@ -116,16 +122,16 @@ const mapStateToProps = state => ({
   priceFilterChanged: state.settings.priceFilterChanged,
   m2PriceFilterChanged: state.settings.m2PriceFilterChanged,
   sizeFilterChanged: state.settings.sizeFilterChanged,
+  minPrice: state.settings.minPrice,
+  avgPrice: state.settings.avgPrice,
+  maxPrice: state.settings.maxPrice,
+  minSize: state.settings.minSize,
+  avgSize: state.settings.avgSize,
+  maxSize: state.settings.maxSize,
+  minM2Price: state.settings.minM2Price,
+  avgM2Price: state.settings.avgM2Price,
+  maxM2Price: state.settings.maxM2Price,
   queryParameters: state.settings.queryParameters,
-  minPrice: state.api.minPrice,
-  avgPrice: state.api.avgPrice,
-  maxPrice: state.api.maxPrice,
-  minSize: state.api.minSize,
-  avgSize: state.api.avgSize,
-  maxSize: state.api.maxSize,
-  minM2Price: state.api.minM2Price,
-  avgM2Price: state.api.avgM2Price,
-  maxM2Price: state.api.maxM2Price,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -137,22 +143,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
-
-const priceSliderInfo = {
-  min: 0,
-  max: 2000000,
-  step: 1000,
-}
-
-const m2PriceSliderInfo = {
-  min: 0,
-  max: 20000,
-  step: 100,
-}
-
-const sizeSliderInfo = {
-  min: 0,
-  max: 500,
-  step: 1,
-}
-
