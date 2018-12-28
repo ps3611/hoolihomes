@@ -11,7 +11,7 @@ const initialState = {
     price: [0,10000000],
     m2Price: [0,20000],
     size: [0,500],
-    radius: 10000, // in meters
+    radius: 5000, // in meters
     page: 1,
   },
   errors: {},
