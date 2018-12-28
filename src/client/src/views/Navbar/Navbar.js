@@ -139,7 +139,7 @@ const mapDispatchToProps = dispatch => ({
   selectM2PriceRange: range => dispatch(selectM2PriceRange(range)),
   selectSizeRange: range => dispatch(selectSizeRange(range)),
   selectCity: city => dispatch(selectCity(city)),
-  fetchHomesList: queryParameters => dispatch(fetchHomesList(queryParameters)),
+  fetchHomesList: (queryParameters,init) => dispatch(fetchHomesList(queryParameters,init)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

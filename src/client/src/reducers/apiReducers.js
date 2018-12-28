@@ -9,6 +9,7 @@ const initialState = {
 export default (state=initialState, action) => {
   switch (action.type) {
     case api.HOMES_LIST_SUCCESS:
+    case api.INIT_HOMES_LIST_SUCCESS:
       return {
         ...state,
         homesList: action.payload.homesList,
@@ -16,6 +17,7 @@ export default (state=initialState, action) => {
         errors: {},
       };
     case api.HOMES_LIST_FAILURE:
+    case api.INIT_HOMES_LIST_FAILURE:
       return {
         ...state,
         errors: action.payload.response || { non_field_errors: action.payload.statusText },

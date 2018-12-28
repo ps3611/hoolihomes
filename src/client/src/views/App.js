@@ -8,7 +8,7 @@ import '../styles/App.css';
 
 class App extends Component {
   componentWillMount() {
-    this.props.fetchHomesList(this.props.queryParameters);
+    this.props.fetchHomesList(this.props.queryParameters,true);
   }
 
   render() {
@@ -29,7 +29,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchHomesList: queryParameters => dispatch(fetchHomesList(queryParameters)),
+  fetchHomesList: (queryParameters,init) => dispatch(fetchHomesList(queryParameters,init)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

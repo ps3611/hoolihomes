@@ -8,13 +8,13 @@ const initialState = {
   sizeFilterChanged: false,
   minPrice: 0,
   avgPrice: 0,
-  maxPrice: 1000000,
+  maxPrice: 100000,
   minSize: 0,
   avgSize: 0,
-  maxSize: 10000,
+  maxSize: 1000,
   minM2Price: 0,
   avgM2Price: 0,
-  maxM2Price: 100000,
+  maxM2Price: 10000,
   queryParameters: {
     centerLatitude: 41.385063,
     centerLongitude: 2.173404,
@@ -28,6 +28,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log(action.type);
   const newQueryParameters = state.queryParameters;
   switch (action.type) {
     case api.HOMES_LIST_SUCCESS:
@@ -36,6 +37,19 @@ export default (state = initialState, action) => {
         avgPrice: action.payload.avgPrice,
         avgSize: action.payload.avgSize,
         avgM2Price: action.payload.avgM2Price,
+      };
+    case api.INIT_HOMES_LIST_SUCCESS:
+      return {
+        ...state,
+        minPrice: action.payload.minPrice,
+        avgPrice: action.payload.avgPrice,
+        maxPrice: action.payload.maxPrice,
+        minSize: action.payload.minSize,
+        avgSize: action.payload.avgSize,
+        maxSize: action.payload.maxSize,
+        minM2Price: action.payload.minM2Price,
+        avgM2Price: action.payload.avgM2Price,
+        maxM2Price: action.payload.maxM2Price,
       };
     case settings.SELECT_PRICE_RANGE:
       newQueryParameters.price = action.payload;

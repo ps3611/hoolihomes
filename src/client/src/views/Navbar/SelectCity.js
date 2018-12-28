@@ -6,7 +6,7 @@ class SelectCity extends Component {
 
   handleClick = city => {
     this.props.updateValues(city);
-    this.props.fetchHomesList(this.props.queryParameters);
+    this.props.fetchHomesList(this.props.queryParameters,true);
   }
 
   render() {

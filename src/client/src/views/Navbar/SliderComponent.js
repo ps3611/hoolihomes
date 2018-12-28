@@ -10,7 +10,7 @@ class SliderComponent extends Component {
 
   handleAfterChange = value => {
     this.props.updateValues(value);
-    this.props.fetchHomesList(this.props.queryParameters);
+    this.props.fetchHomesList(this.props.queryParameters,false);
   }
 
   render() {
