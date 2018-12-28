@@ -25,13 +25,15 @@ class SliderComponent extends Component {
             min={info.min}
             max={info.max}
             step={info.step}
-            marks={info.marks}
             value={this.state.value}
             included={false}
             allowCross={false}
             onChange={value => this.setState({ value })}
             onAfterChange={this.handleAfterChange}
           />
+        </div>
+        <div>
+          <p>{`${this.state.value[0]} - ${this.state.value[1]}`}</p>
         </div>
       </div>
     );

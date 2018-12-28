@@ -18,7 +18,7 @@ class Navbar extends Component {
   }
 
   formatM2PriceLabel = (queryParameters) => {
-    return `${queryParameters.m2Price[0]/1000} - ${queryParameters.m2Price[1]/1000} €/m2`;
+    return `${queryParameters.m2Price[0]} - ${queryParameters.m2Price[1]} €/m2`;
   }
 
   render() {
@@ -52,7 +52,7 @@ class Navbar extends Component {
             popupContent={
               <SliderComponent
                 key={1}
-                title={`The average price is €${Math.round(this.props.avgPrice/1000)}k`}
+                title={`The average price is ${Math.round(this.props.avgPrice/1000)}k€`}
                 values={queryParameters.price}
                 updateValues={selectPriceRange}
                 info={priceSliderInfo}
@@ -82,7 +82,7 @@ class Navbar extends Component {
           popupContent={
             <SliderComponent
               key={3}
-              title={`The average m2 price is €${this.props.avgM2Price}`}
+              title={`The average m2 price is ${this.props.avgM2Price}€`}
               values={queryParameters.m2Price}
               updateValues={selectM2PriceRange}
               info={m2PriceSliderInfo}
@@ -141,33 +141,18 @@ export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
 const priceSliderInfo = {
   min: 0,
   max: 2000000,
-  step: 100000,
-  marks: {
-    0: <strong>0</strong>,
-    1000000: 1,
-    2000000: <strong>2MM€</strong>,
-  }
+  step: 1000,
 }
 
 const m2PriceSliderInfo = {
   min: 0,
   max: 20000,
-  step: 10000,
-  marks: {
-    0: <strong>0</strong>,
-    10000: 1,
-    20000: <strong>2M€</strong>,
-  }
+  step: 100,
 }
 
 const sizeSliderInfo = {
   min: 0,
   max: 500,
-  step: 50,
-  marks: {
-    0: <strong>0</strong>,
-    100: 1,
-    500: <strong>500m2</strong>,
-  }
+  step: 1,
 }
 
