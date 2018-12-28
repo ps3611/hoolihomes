@@ -62,26 +62,11 @@ class Navbar extends Component {
             }
           />
           <Filter
-            id='m2'
-            label={m2PriceLabel}
-            popupContent={
-              <SliderComponent
-                key={2}
-                title='The average m2 price is €Xk'
-                values={queryParameters.m2Price}
-                updateValues={selectM2PriceRange}
-                info={m2PriceSliderInfo}
-                fetchHomesList={fetchHomesList}
-                queryParameters={queryParameters}
-              />
-            }
-          />
-          <Filter
             id='size'
             label={sizeLabel}
             popupContent={
               <SliderComponent
-                key={3}
+                key={2}
                 title='The average size is €Xk'
                 values={queryParameters.size}
                 updateValues={selectSizeRange}
@@ -90,6 +75,21 @@ class Navbar extends Component {
                 queryParameters={queryParameters}
               />
             }
+          />
+        <Filter
+          id='m2'
+          label={m2PriceLabel}
+          popupContent={
+            <SliderComponent
+              key={3}
+              title='The average m2 price is €Xk'
+              values={queryParameters.m2Price}
+              updateValues={selectM2PriceRange}
+              info={m2PriceSliderInfo}
+              fetchHomesList={fetchHomesList}
+              queryParameters={queryParameters}
+              />
+          }
           />
           <Filter
             id='city'
