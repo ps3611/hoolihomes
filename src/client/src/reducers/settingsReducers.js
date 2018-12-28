@@ -8,13 +8,13 @@ const initialState = {
   sizeFilterChanged: false,
   minPrice: 0,
   avgPrice: 0,
-  maxPrice: 3000000,
+  maxPrice: 0,
   minSize: 0,
   avgSize: 0,
-  maxSize: 500,
+  maxSize: 0,
   minM2Price: 0,
   avgM2Price: 0,
-  maxM2Price: 20000,
+  maxM2Price: 0,
   queryParameters: {
     centerLatitude: 41.385063,
     centerLongitude: 2.173404,
@@ -37,6 +37,16 @@ export default (state = initialState, action) => {
         avgSize: action.payload.avgSize,
         avgM2Price: action.payload.avgM2Price,
         queryParameters: newQueryParameters,
+      };
+    case api.CITY_INFO_SUCCESS:
+      return {
+        ...state,
+        minPrice: action.payload.minPrice,
+        maxPrice: action.payload.maxPrice,
+        minSize: action.payload.minSize,
+        maxSize: action.payload.maxSize,
+        minM2Price: action.payload.minM2Price,
+        maxM2Price: action.payload.maxM2Price,
       };
     case settings.SELECT_PRICE_RANGE:
       newQueryParameters.price = action.payload;

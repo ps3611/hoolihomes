@@ -5,7 +5,7 @@ import '../../styles/SliderComponent.css';
 
 class SliderComponent extends Component {
   state = {
-    value: this.props.values,
+    value: [this.props.min, this.props.max],
   }
 
   handleAfterChange = value => {
