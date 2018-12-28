@@ -10,15 +10,15 @@ import '../../styles/Navbar.css';
 class Navbar extends Component {
 
   formatPriceLabel = (queryParameters) => {
-    return `€${queryParameters.price[0]/1000}k-€${queryParameters.price[1]/1000}k`;
-  }
-
-  formatM2PriceLabel = (queryParameters) => {
-    return `€${queryParameters.m2Price[0]/1000}k/m2-€${queryParameters.m2Price[1]/1000}k/m2`;
+    return `${queryParameters.price[0]/1000} - ${queryParameters.price[1]/1000} k€`;
   }
 
   formatSizeLabel = (queryParameters) => {
-    return `${queryParameters.size[0]}m2-${queryParameters.size[1]}m2`;
+    return `${queryParameters.size[0]} - ${queryParameters.size[1]} m2`;
+  }
+
+  formatM2PriceLabel = (queryParameters) => {
+    return `${queryParameters.m2Price[0]/1000} - ${queryParameters.m2Price[1]/1000} €/m2`;
   }
 
   render() {
@@ -52,7 +52,7 @@ class Navbar extends Component {
             popupContent={
               <SliderComponent
                 key={1}
-                title='The average price is €Xk'
+                title={`The average price is €${Math.round(this.props.avgPrice/1000)}k`}
                 values={queryParameters.price}
                 updateValues={selectPriceRange}
                 info={priceSliderInfo}
@@ -67,7 +67,7 @@ class Navbar extends Component {
             popupContent={
               <SliderComponent
                 key={2}
-                title='The average size is €Xk'
+                title={`The average size is ${this.props.avgSize}m2`}
                 values={queryParameters.size}
                 updateValues={selectSizeRange}
                 info={sizeSliderInfo}
@@ -82,7 +82,7 @@ class Navbar extends Component {
           popupContent={
             <SliderComponent
               key={3}
-              title='The average m2 price is €Xk'
+              title={`The average m2 price is €${this.props.avgM2Price}`}
               values={queryParameters.m2Price}
               updateValues={selectM2PriceRange}
               info={m2PriceSliderInfo}
@@ -117,6 +117,15 @@ const mapStateToProps = state => ({
   m2PriceFilterChanged: state.settings.m2PriceFilterChanged,
   sizeFilterChanged: state.settings.sizeFilterChanged,
   queryParameters: state.settings.queryParameters,
+  minPrice: state.api.minPrice,
+  avgPrice: state.api.avgPrice,
+  maxPrice: state.api.maxPrice,
+  minSize: state.api.minSize,
+  avgSize: state.api.avgSize,
+  maxSize: state.api.maxSize,
+  minM2Price: state.api.minM2Price,
+  avgM2Price: state.api.avgM2Price,
+  maxM2Price: state.api.maxM2Price,
 });
 
 const mapDispatchToProps = dispatch => ({
