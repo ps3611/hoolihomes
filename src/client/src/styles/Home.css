@@ -38,6 +38,21 @@
   background-color: blue;
 }
 
+.HomeDetailsPrice {
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.HomeDetailsMinor {
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 h3 {
   padding: 5px;
   margin: 0px;

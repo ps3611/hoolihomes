@@ -6,8 +6,9 @@ class Home extends Component {
     const {
       picture,
       title,
-      size,
       price,
+      size,
+      m2Price,
     } = this.props;
     return (
       <div className='Home'>
@@ -18,8 +19,13 @@ class Home extends Component {
             <h3 style={{backgroundColor:'red'}}>{title}</h3>
           </div>
           <div className='HomeDetails'>
-            <h3 style={{backgroundColor:'red'}}>{price}€</h3>
-            <p style={{backgroundColor:'red'}}>{size} m2</p>
+            <div className='HomeDetailsPrice'>
+              <h3 style={{backgroundColor:'red'}}>{price}€</h3>
+            </div>
+            <div className='HomeDetailsMinor'>
+              <p style={{backgroundColor:'red'}}>{size} m2</p>
+              <p style={{backgroundColor:'red'}}>{m2Price} €/m2</p>
+            </div>
           </div>
         </div>
       </div>
