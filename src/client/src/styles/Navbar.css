@@ -3,11 +3,12 @@
   color: white;
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid #DBE0E0;
 }
 
 .NavbarLogo {
   flex: 1;
-  color: black;
+  color: #484848;
 }
 
 .NavbarFilters {

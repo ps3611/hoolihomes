@@ -17,15 +17,17 @@ class Home extends Component {
         </div>
         <div className='HomeInfo'>
           <div className='HomeTitle'>
-            <h3 style={{backgroundColor:'red'}}>{title}</h3>
+            <h4>{title}</h4>
+          </div>
+          <div className='HomePrice'>
+            <h3>{numberFormater(price,1000,0)}€</h3>
           </div>
           <div className='HomeDetails'>
-            <div className='HomeDetailsPrice'>
-              <h3 style={{backgroundColor:'red'}}>{numberFormater(price,1000,0)}€</h3>
+            <div className='HomeSize'>
+              <p>{numberFormater(size,1,0)}m²</p>
             </div>
-            <div className='HomeDetailsMinor'>
-              <p style={{backgroundColor:'red'}}><b>{numberFormater(size,1,0)}</b>m²</p>
-              <p style={{backgroundColor:'red'}}><b>{numberFormater(m2Price,1,0)}</b>€/m²</p>
+            <div className='HomeM2Price'>
+              <p>{numberFormater(m2Price,1,0)}€/m²</p>
             </div>
           </div>
         </div>
