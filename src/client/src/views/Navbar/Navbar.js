@@ -22,6 +22,11 @@ class Navbar extends Component {
     return `${numberFormater(queryParameters.m2Price[0],1,0,'€/m²')} - ${numberFormater(queryParameters.m2Price[1],1,0,'€/m²')}`;
   }
 
+  handleResetClick = () => {
+    this.props.resetFilters();
+    this.props.fetchHomesListCity(this.props.queryParameters);
+  }
+
   render() {
     const {
       selectedCity,
@@ -47,7 +52,7 @@ class Navbar extends Component {
         <div className='NavbarFilters'>
           <div
             className={resetClassName}
-            onClick={this.props.resetFilters}
+            onClick={this.handleResetClick}
           >
             <h3>Reset</h3>
           </div>
