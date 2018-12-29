@@ -55,21 +55,21 @@ export default (state = initialState, action) => {
       return {
         ...state,
         queryParameters: newQueryParameters,
-        priceFilterActive: true,
-      };
-    case settings.SELECT_M2PRICE_RANGE:
-      newQueryParameters.m2Price = action.payload;
-      return {
-        ...state,
-        queryParameters: newQueryParameters,
-        m2PriceFilterActive: true,
+        priceFilterActive: state.minPrice !== state.queryParameters.price[0] || state.maxPrice !== state.queryParameters.price[1],
       };
     case settings.SELECT_SIZE_RANGE:
       newQueryParameters.size = action.payload;
       return {
         ...state,
         queryParameters: newQueryParameters,
-        sizeFilterActive: true,
+        sizeFilterActive: state.minSize !== state.queryParameters.size[0] || state.maxSize !== state.queryParameters.size[1],
+      };
+    case settings.SELECT_M2PRICE_RANGE:
+      newQueryParameters.m2Price = action.payload;
+      return {
+        ...state,
+        queryParameters: newQueryParameters,
+        m2PriceFilterActive: state.minM2Price !== state.queryParameters.m2Price[0] || state.maxM2Price !== state.queryParameters.m2Price[1],
       };
     case settings.SELECT_CITY:
       newQueryParameters.centerLatitude = action.payload.lat;
