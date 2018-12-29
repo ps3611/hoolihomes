@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { fetchHomesList, fetchHomesListCity } from '../../actions/apiActions';
 import { selectPriceRange, selectM2PriceRange, selectSizeRange, selectCity, resetFilters } from '../../actions/settingsActions';
 import Filter from './Filter';
-import SliderComponent from './SliderComponent';
-import SelectCity from './SelectCity';
+import SliderPopup from './SliderPopup';
+import CityPopup from './CityPopup';
 import { numberFormater } from '../helper';
 import '../../styles/Navbar.css';
 
@@ -61,7 +61,7 @@ class Navbar extends Component {
             label={priceLabel}
             isActive={priceFilterActive}
             popupContent={
-              <SliderComponent
+              <SliderPopup
                 key={1}
                 title={`The average price is ${numberFormater(this.props.avgPrice,1000,0)}€`}
                 unit='€'
@@ -80,7 +80,7 @@ class Navbar extends Component {
             label={sizeLabel}
             isActive={sizeFilterActive}
             popupContent={
-              <SliderComponent
+              <SliderPopup
                 key={2}
                 title={`The average size is ${numberFormater(this.props.avgSize,1,0)}m²`}
                 unit='m²'
@@ -99,7 +99,7 @@ class Navbar extends Component {
           label={m2PriceLabel}
           isActive={m2PriceFilterActive}
           popupContent={
-            <SliderComponent
+            <SliderPopup
               key={3}
               title={`The average m² price is ${numberFormater(this.props.avgM2Price,1,0)}€`}
               unit='€/m²'
@@ -117,7 +117,7 @@ class Navbar extends Component {
             id='city'
             label={selectedCity}
             popupContent={
-              <SelectCity
+              <CityPopup
                 updateValues={selectCity}
                 fetchHomesListCity={this.props.fetchHomesListCity}
                 queryParameters={queryParameters}

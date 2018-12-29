@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { numberFormater } from '../helper';
-import '../../styles/SliderComponent.css';
+import '../../styles/SliderPopup.css';
 
-class SliderComponent extends Component {
+class SliderPopup extends Component {
   state = {
     value: [this.props.min, this.props.max],
   }
@@ -17,7 +17,7 @@ class SliderComponent extends Component {
   render() {
     const { title, unit, min, max, step } = this.props;
     return (
-      <div className='SliderComponent'>
+      <div className='SliderPopup'>
         <div className='SliderTitle'>
           <p>{title}</p>
         </div>
@@ -41,4 +41,4 @@ class SliderComponent extends Component {
   }
 }
 
-export default SliderComponent;
+export default SliderPopup;

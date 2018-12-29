@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../../styles/SelectCity.css';
+import '../../styles/CityPopup.css';
 const { cities } = require('./cities.json');
 
-class SelectCity extends Component {
+class CityPopup extends Component {
 
   handleClick = city => {
     this.props.updateValues(city);
@@ -10,22 +10,22 @@ class SelectCity extends Component {
   }
 
   render() {
-    const className = cities.length > 5 ? 'SelectCity SelectCityLong' : 'SelectCity';
-    const cityList = cities.map((city,i) => (
+    const className = cities.length > 5 ? 'CityPopup CityPopupLong' : 'CityPopup';
+    const cityList = cities.map((city, i) => (
       <div
-        key={i}
-        className='City'
-        onClick={() => this.handleClick(city)}
+        key = {i}
+        className = 'City'
+        onClick = {() => this.handleClick(city)}
       >
         {city.name}
       </div>
     ));
     return (
       <div className={className}>
-        {cityList}
+       {cityList}
       </div>
     );
   }
 }
 
-export default SelectCity;
+export default CityPopup;

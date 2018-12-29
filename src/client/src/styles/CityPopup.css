@@ -1,8 +1,8 @@
-.SelectCity {
+.CityPopup {
   padding: 10px;
 }
 
-.SelectCityLong {
+.CityPopupLong {
   height: 300px;
   overflow: scroll;
 }
