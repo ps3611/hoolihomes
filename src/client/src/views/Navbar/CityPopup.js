@@ -11,11 +11,11 @@ class CityPopup extends Component {
 
   render() {
     const className = cities.length > 5 ? 'CityPopup CityPopupLong' : 'CityPopup';
-    const cityList = cities.map((city, i) => (
+    const cityList = cities.sort((a,b) => a.name > b.name ? 1 : -1 ).map((city, i) => (
       <div
         key = {i}
         className = 'City'
-        onClick = {() => this.handleClick(city)}
+        onClick={() => this.handleClick(city)}
       >
         {city.name}
       </div>

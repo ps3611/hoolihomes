@@ -1,5 +1,5 @@
 .CityPopup {
-  padding: 10px;
+  padding: 5px;
 }
 
 .CityPopupLong {
@@ -17,5 +17,9 @@
 }
 
 .City {
-  padding: 10px;
+  padding: 20px;
+}
+
+.City:hover{
+   background-color: #F2F2F2;
 }
