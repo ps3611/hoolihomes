@@ -5,20 +5,21 @@ import { selectPriceRange, selectM2PriceRange, selectSizeRange, selectCity, rese
 import Filter from './Filter';
 import SliderComponent from './SliderComponent';
 import SelectCity from './SelectCity';
+import { numberFormater } from '../helper';
 import '../../styles/Navbar.css';
 
 class Navbar extends Component {
 
   formatPriceLabel = (queryParameters) => {
-    return `${queryParameters.price[0]/1000}k€ - ${queryParameters.price[1]/1000}k€`;
+    return `${numberFormater(queryParameters.price[0],1000,3,'k€')} - ${numberFormater(queryParameters.price[1],1000,3,'k€')}`;
   }
 
   formatSizeLabel = (queryParameters) => {
-    return `${queryParameters.size[0]}m² - ${queryParameters.size[1]}m²`;
+    return `${numberFormater(queryParameters.size[0],1,0,'m²')} - ${numberFormater(queryParameters.size[1],1,0,'m²')}`;
   }
 
   formatM2PriceLabel = (queryParameters) => {
-    return `${queryParameters.m2Price[0]}€/m² - ${queryParameters.m2Price[1]}€/m²`;
+    return `${numberFormater(queryParameters.m2Price[0],1,0,'€/m²')} - ${numberFormater(queryParameters.m2Price[1],1,0,'€/m²')}`;
   }
 
   render() {
@@ -57,7 +58,7 @@ class Navbar extends Component {
             popupContent={
               <SliderComponent
                 key={1}
-                title={`The average price is ${Math.round(this.props.avgPrice/1000)}k€`}
+                title={`The average price is ${numberFormater(this.props.avgPrice,1000,0)}€`}
                 unit='€'
                 values={queryParameters.price}
                 updateValues={selectPriceRange}
@@ -76,7 +77,7 @@ class Navbar extends Component {
             popupContent={
               <SliderComponent
                 key={2}
-                title={`The average size is ${this.props.avgSize}m²`}
+                title={`The average size is ${numberFormater(this.props.avgSize,1,0)}m²`}
                 unit='m²'
                 values={queryParameters.size}
                 updateValues={selectSizeRange}
@@ -95,7 +96,7 @@ class Navbar extends Component {
           popupContent={
             <SliderComponent
               key={3}
-              title={`The average m² price is ${this.props.avgM2Price}€`}
+              title={`The average m² price is ${numberFormater(this.props.avgM2Price,1,0)}€`}
               unit='€/m²'
               values={queryParameters.m2Price}
               updateValues={selectM2PriceRange}

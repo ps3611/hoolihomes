@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import { numberFormater } from '../helper';
 import '../../styles/SliderComponent.css';
 
 class SliderComponent extends Component {
@@ -33,7 +34,7 @@ class SliderComponent extends Component {
           />
         </div>
         <div>
-          <p>{`${this.state.value[0]}${unit} - ${this.state.value[1]}${unit}`}</p>
+          <p>{`${numberFormater(this.state.value[0],1,0,unit)}- ${numberFormater(this.state.value[1],1,0,unit)}`}</p>
         </div>
       </div>
     );

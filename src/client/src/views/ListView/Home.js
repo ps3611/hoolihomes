@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../../styles/Home.css'
+import { numberFormater } from '../helper';
+import '../../styles/Home.css';
 
 class Home extends Component {
   render() {
@@ -20,11 +21,11 @@ class Home extends Component {
           </div>
           <div className='HomeDetails'>
             <div className='HomeDetailsPrice'>
-              <h3 style={{backgroundColor:'red'}}>{price}€</h3>
+              <h3 style={{backgroundColor:'red'}}>{numberFormater(price,1000,0)}€</h3>
             </div>
             <div className='HomeDetailsMinor'>
-              <p style={{backgroundColor:'red'}}><b>{size}</b>m²</p>
-              <p style={{backgroundColor:'red'}}><b>{m2Price}</b>€/m²</p>
+              <p style={{backgroundColor:'red'}}><b>{numberFormater(size,1,0)}</b>m²</p>
+              <p style={{backgroundColor:'red'}}><b>{numberFormater(m2Price,1,0)}</b>€/m²</p>
             </div>
           </div>
         </div>
