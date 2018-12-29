@@ -82,7 +82,7 @@ class Navbar extends Component {
             popupContent={
               <SliderPopup
                 key={2}
-                title={`The average size is ${numberFormater(this.props.avgSize,1,0)}m²`}
+                title={`The average home size is ${numberFormater(this.props.avgSize,1,0)}m²`}
                 unit='m²'
                 values={queryParameters.size}
                 updateValues={selectSizeRange}

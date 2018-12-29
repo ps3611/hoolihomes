@@ -4,6 +4,7 @@ import 'rc-slider/assets/index.css';
 import { numberFormater } from '../helper';
 import '../../styles/SliderPopup.css';
 
+
 class SliderPopup extends Component {
   state = {
     value: [this.props.min, this.props.max],
@@ -31,10 +32,11 @@ class SliderPopup extends Component {
             allowCross={false}
             onChange={value => this.setState({ value })}
             onAfterChange={this.handleAfterChange}
+            handleStyle={[dotStyle, dotStyle]}
           />
         </div>
-        <div>
-          <p>{`${numberFormater(this.state.value[0],1,0,unit)}- ${numberFormater(this.state.value[1],1,0,unit)}`}</p>
+        <div className='SliderValues'>
+          <p>{`${numberFormater(this.state.value[0],1,0,unit)} - ${numberFormater(this.state.value[1],1,0,unit)}`}</p>
         </div>
       </div>
     );
@@ -42,3 +44,12 @@ class SliderPopup extends Component {
 }
 
 export default SliderPopup;
+
+const dotStyle = {
+  height: 20,
+  width: 20,
+  marginLeft: -10,
+  marginTop: -8,
+  borderColor: '#008489',
+  borderWidth: 'medium',
+}
