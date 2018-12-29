@@ -31,11 +31,11 @@ class Navbar extends Component {
       selectSizeRange,
       selectCity,
       priceFilterActive,
-      sizeFilterChanged,
+      sizeFilterActive,
       m2PriceFilterActive,
     } = this.props;
     const priceLabel = priceFilterActive ? this.formatPriceLabel(queryParameters) : 'Price';
-    const sizeLabel = sizeFilterChanged ? this.formatSizeLabel(queryParameters) : 'Size';
+    const sizeLabel = sizeFilterActive ? this.formatSizeLabel(queryParameters) : 'Size';
     const m2PriceLabel = m2PriceFilterActive ? this.formatM2PriceLabel(queryParameters) : 'm2 Price';
     return (
       <div className='Navbar'>
@@ -67,7 +67,7 @@ class Navbar extends Component {
           <Filter
             id='size'
             label={sizeLabel}
-            isActive={sizeFilterChanged}
+            isActive={sizeFilterActive}
             popupContent={
               <SliderComponent
                 key={2}
@@ -124,7 +124,7 @@ const mapStateToProps = state => ({
   selectedCity: state.settings.selectedCity,
   priceFilterActive: state.settings.priceFilterActive,
   m2PriceFilterActive: state.settings.m2PriceFilterActive,
-  sizeFilterChanged: state.settings.sizeFilterChanged,
+  sizeFilterActive: state.settings.sizeFilterActive,
   minPrice: state.settings.minPrice,
   avgPrice: state.settings.avgPrice,
   maxPrice: state.settings.maxPrice,

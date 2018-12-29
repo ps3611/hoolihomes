@@ -5,7 +5,7 @@ const initialState = {
   selectedCity: 'Barcelona',
   priceFilterActive: false,
   m2PriceFilterActive: false,
-  sizeFilterChanged: false,
+  sizeFilterActive: false,
   minPrice: 0,
   avgPrice: 0,
   maxPrice: 100000,
@@ -69,7 +69,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         queryParameters: newQueryParameters,
-        sizeFilterChanged: true,
+        sizeFilterActive: true,
       };
     case settings.SELECT_CITY:
       newQueryParameters.centerLatitude = action.payload.lat;
@@ -79,7 +79,7 @@ export default (state = initialState, action) => {
         selectedCity: action.payload.name,
         priceFilterActive: false,
         m2PriceFilterActive: false,
-        sizeFilterChanged: false,
+        sizeFilterActive: false,
         queryParameters: newQueryParameters,
       };
     default:
