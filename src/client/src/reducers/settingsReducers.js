@@ -82,6 +82,17 @@ export default (state = initialState, action) => {
         sizeFilterActive: false,
         queryParameters: newQueryParameters,
       };
+    case settings.RESET_FILTERS:
+      newQueryParameters.price = [state.minPrice, state.maxPrice];
+      newQueryParameters.size = [state.minSize, state.maxSize];
+      newQueryParameters.m2Price = [state.minM2Price, state.maxM2Price];
+      return {
+        ...state,
+        priceFilterActive: false,
+        m2PriceFilterActive: false,
+        sizeFilterActive: false,
+        queryParameters: newQueryParameters,
+      };
     default:
       return state;
   }

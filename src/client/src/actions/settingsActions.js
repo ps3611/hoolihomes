@@ -1,8 +1,8 @@
 export const SELECT_PRICE_RANGE = '@@setting/SELECT_PRICE_RANGE';
 export const SELECT_M2PRICE_RANGE = '@@setting/SELECT_M2PRICE_RANGE';
 export const SELECT_SIZE_RANGE = '@@setting/SELECT_SIZE_RANGE';
-
 export const SELECT_CITY = '@@setting/SELECT_CITY';
+export const RESET_FILTERS = '@@setting/RESET_FILTERS';
 
 export const selectPriceRange = range => ({
   type: SELECT_PRICE_RANGE,
@@ -22,4 +22,8 @@ export const selectSizeRange = range => ({
 export const selectCity = city => ({
   type: SELECT_CITY,
   payload: city,
+});
+
+export const resetFilters = () => ({
+  type: RESET_FILTERS,
 });

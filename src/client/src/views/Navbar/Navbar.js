@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchHomesList, fetchHomesListCity } from '../../actions/apiActions';
-import { selectPriceRange, selectM2PriceRange, selectSizeRange, selectCity } from '../../actions/settingsActions';
+import { selectPriceRange, selectM2PriceRange, selectSizeRange, selectCity, resetFilters } from '../../actions/settingsActions';
 import Filter from './Filter';
 import SliderComponent from './SliderComponent';
 import SelectCity from './SelectCity';
@@ -34,6 +34,7 @@ class Navbar extends Component {
       sizeFilterActive,
       m2PriceFilterActive,
     } = this.props;
+    const resetClassName = priceFilterActive || sizeFilterActive || m2PriceFilterActive ? 'Reset' : 'Reset ResetHidden';
     const priceLabel = priceFilterActive ? this.formatPriceLabel(queryParameters) : 'Price';
     const sizeLabel = sizeFilterActive ? this.formatSizeLabel(queryParameters) : 'Size';
     const m2PriceLabel = m2PriceFilterActive ? this.formatM2PriceLabel(queryParameters) : 'm2 Price';
@@ -43,8 +44,11 @@ class Navbar extends Component {
           <h1>Hooli Homes</h1>
         </div>
         <div className='NavbarFilters'>
-          <div className='Reset'>
-            <h3>Reset!</h3>
+          <div
+            className={resetClassName}
+            onClick={this.props.resetFilters}
+          >
+            <h3>Reset</h3>
           </div>
           <Filter
             id='price'
@@ -142,6 +146,7 @@ const mapDispatchToProps = dispatch => ({
   selectM2PriceRange: range => dispatch(selectM2PriceRange(range)),
   selectSizeRange: range => dispatch(selectSizeRange(range)),
   selectCity: city => dispatch(selectCity(city)),
+  resetFilters: () => dispatch(resetFilters()),
   fetchHomesList: queryParameters => dispatch(fetchHomesList(queryParameters)),
   fetchHomesListCity: queryParameters => dispatch(fetchHomesListCity(queryParameters)),
 });
