@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchHomesList } from '../../actions/apiActions';
+import { fetchHomesList, fetchHomesListCity } from '../../actions/apiActions';
 import { selectPriceRange, selectM2PriceRange, selectSizeRange, selectCity } from '../../actions/settingsActions';
 import Filter from './Filter';
 import SliderComponent from './SliderComponent';
@@ -94,7 +94,7 @@ class Navbar extends Component {
               step={1}
               fetchHomesList={fetchHomesList}
               queryParameters={queryParameters}
-              />
+            />
           }
           />
           <Filter
@@ -103,7 +103,7 @@ class Navbar extends Component {
             popupContent={
               <SelectCity
                 updateValues={selectCity}
-                fetchHomesList={fetchHomesList}
+                fetchHomesListCity={this.props.fetchHomesListCity}
                 queryParameters={queryParameters}
               />
             }
@@ -139,7 +139,8 @@ const mapDispatchToProps = dispatch => ({
   selectM2PriceRange: range => dispatch(selectM2PriceRange(range)),
   selectSizeRange: range => dispatch(selectSizeRange(range)),
   selectCity: city => dispatch(selectCity(city)),
-  fetchHomesList: (queryParameters,init) => dispatch(fetchHomesList(queryParameters,init)),
+  fetchHomesList: queryParameters => dispatch(fetchHomesList(queryParameters)),
+  fetchHomesListCity: queryParameters => dispatch(fetchHomesListCity(queryParameters)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

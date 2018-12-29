@@ -11,8 +11,7 @@ export const INIT_HOMES_LIST_REQUEST = '@@api/INIT_HOMES_LIST_REQUEST';
 export const INIT_HOMES_LIST_SUCCESS = '@@api/INIT_HOMES_LIST_SUCCESS';
 export const INIT_HOMES_LIST_FAILURE = '@@api/INIT_HOMES_LIST_FAILURE';
 
-export const fetchHomesList = (queryParameters, init) => {
-  if (init) {
+export const fetchHomesListCity = queryParameters => {
     const newQueryParameters = queryParameters;
     newQueryParameters.price = [0,10000000];
     newQueryParameters.m2Price = [0,10000];
@@ -27,17 +26,17 @@ export const fetchHomesList = (queryParameters, init) => {
         types: [INIT_HOMES_LIST_REQUEST, INIT_HOMES_LIST_SUCCESS, INIT_HOMES_LIST_FAILURE],
       },
     })
-  }
-  else {
-    const urlParameters = qs.stringify(queryParameters);
-    const endpoint = `${SERVER_ENDPOINT}/homes?${urlParameters}`;
-    return ({
-      [RSAA]: {
-        endpoint: endpoint,
-        method: 'GET',
-        headers: {'Content-Type':'application/json'},
-        types: [HOMES_LIST_REQUEST, HOMES_LIST_SUCCESS, HOMES_LIST_FAILURE],
-      },
-    })
-  }
+}
+
+export const fetchHomesList = (queryParameters) => {
+  const urlParameters = qs.stringify(queryParameters);
+  const endpoint = `${SERVER_ENDPOINT}/homes?${urlParameters}`;
+  return ({
+    [RSAA]: {
+      endpoint: endpoint,
+      method: 'GET',
+      headers: {'Content-Type':'application/json'},
+      types: [HOMES_LIST_REQUEST, HOMES_LIST_SUCCESS, HOMES_LIST_FAILURE],
+    },
+  })
 }
