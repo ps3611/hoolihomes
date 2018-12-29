@@ -4,7 +4,7 @@ import '../../styles/Filter.css';
 
 class Filter extends Component {
   state = {
-     isTooltipActive: false
+     isTooltipActive: false,
   }
 
   showTooltip = () => {
@@ -16,11 +16,12 @@ class Filter extends Component {
   }
 
   render() {
-    const { id, label, popupContent } = this.props;
+    const { id, label, isActive, popupContent } = this.props;
+    const className = isActive ? 'Filter FilterActive' : 'Filter FilterInactive';
     return (
       <div
         id={`${id}`}
-        className='Filter'
+        className={className}
         onMouseEnter={this.showTooltip}
         onMouseLeave={this.hideTooltip}
       >

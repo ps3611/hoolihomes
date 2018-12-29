@@ -30,13 +30,13 @@ class Navbar extends Component {
       selectM2PriceRange,
       selectSizeRange,
       selectCity,
-      priceFilterChanged,
-      m2PriceFilterChanged,
+      priceFilterActive,
       sizeFilterChanged,
+      m2PriceFilterActive,
     } = this.props;
-    const priceLabel = priceFilterChanged ? this.formatPriceLabel(queryParameters) : 'Price';
-    const m2PriceLabel = m2PriceFilterChanged ? this.formatM2PriceLabel(queryParameters) : 'm2 Price';
+    const priceLabel = priceFilterActive ? this.formatPriceLabel(queryParameters) : 'Price';
     const sizeLabel = sizeFilterChanged ? this.formatSizeLabel(queryParameters) : 'Size';
+    const m2PriceLabel = m2PriceFilterActive ? this.formatM2PriceLabel(queryParameters) : 'm2 Price';
     return (
       <div className='Navbar'>
         <div className='NavbarLogo'>
@@ -49,6 +49,7 @@ class Navbar extends Component {
           <Filter
             id='price'
             label={priceLabel}
+            isActive={priceFilterActive}
             popupContent={
               <SliderComponent
                 key={1}
@@ -66,6 +67,7 @@ class Navbar extends Component {
           <Filter
             id='size'
             label={sizeLabel}
+            isActive={sizeFilterChanged}
             popupContent={
               <SliderComponent
                 key={2}
@@ -83,6 +85,7 @@ class Navbar extends Component {
         <Filter
           id='m2'
           label={m2PriceLabel}
+          isActive={m2PriceFilterActive}
           popupContent={
             <SliderComponent
               key={3}
@@ -119,8 +122,8 @@ const mapStateToProps = state => ({
   m2PriceValues: state.settings.queryParameters.m2Price,
   sizeValues: state.settings.queryParameters.size,
   selectedCity: state.settings.selectedCity,
-  priceFilterChanged: state.settings.priceFilterChanged,
-  m2PriceFilterChanged: state.settings.m2PriceFilterChanged,
+  priceFilterActive: state.settings.priceFilterActive,
+  m2PriceFilterActive: state.settings.m2PriceFilterActive,
   sizeFilterChanged: state.settings.sizeFilterChanged,
   minPrice: state.settings.minPrice,
   avgPrice: state.settings.avgPrice,

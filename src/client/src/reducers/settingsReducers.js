@@ -3,8 +3,8 @@ import * as api from '../actions/apiActions';
 
 const initialState = {
   selectedCity: 'Barcelona',
-  priceFilterChanged: false,
-  m2PriceFilterChanged: false,
+  priceFilterActive: false,
+  m2PriceFilterActive: false,
   sizeFilterChanged: false,
   minPrice: 0,
   avgPrice: 0,
@@ -55,14 +55,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         queryParameters: newQueryParameters,
-        priceFilterChanged: true,
+        priceFilterActive: true,
       };
     case settings.SELECT_M2PRICE_RANGE:
       newQueryParameters.m2Price = action.payload;
       return {
         ...state,
         queryParameters: newQueryParameters,
-        m2PriceFilterChanged: true,
+        m2PriceFilterActive: true,
       };
     case settings.SELECT_SIZE_RANGE:
       newQueryParameters.size = action.payload;
@@ -77,8 +77,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         selectedCity: action.payload.name,
-        priceFilterChanged: false,
-        m2PriceFilterChanged: false,
+        priceFilterActive: false,
+        m2PriceFilterActive: false,
         sizeFilterChanged: false,
         queryParameters: newQueryParameters,
       };
