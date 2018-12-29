@@ -14,7 +14,7 @@ class SliderComponent extends Component {
   }
 
   render() {
-    const { title, min, max, step } = this.props;
+    const { title, unit, min, max, step } = this.props;
     return (
       <div className='SliderComponent'>
         <div className='SliderTitle'>
@@ -33,7 +33,7 @@ class SliderComponent extends Component {
           />
         </div>
         <div>
-          <p>{`${this.state.value[0]} - ${this.state.value[1]}`}</p>
+          <p>{`${this.state.value[0]}${unit} - ${this.state.value[1]}${unit}`}</p>
         </div>
       </div>
     );

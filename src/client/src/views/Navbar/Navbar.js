@@ -10,15 +10,15 @@ import '../../styles/Navbar.css';
 class Navbar extends Component {
 
   formatPriceLabel = (queryParameters) => {
-    return `${queryParameters.price[0]/1000} - ${queryParameters.price[1]/1000} k€`;
+    return `${queryParameters.price[0]/1000}k€ - ${queryParameters.price[1]/1000}k€`;
   }
 
   formatSizeLabel = (queryParameters) => {
-    return `${queryParameters.size[0]} - ${queryParameters.size[1]} m2`;
+    return `${queryParameters.size[0]}m² - ${queryParameters.size[1]}m²`;
   }
 
   formatM2PriceLabel = (queryParameters) => {
-    return `${queryParameters.m2Price[0]} - ${queryParameters.m2Price[1]} €/m2`;
+    return `${queryParameters.m2Price[0]}€/m² - ${queryParameters.m2Price[1]}€/m²`;
   }
 
   render() {
@@ -37,7 +37,7 @@ class Navbar extends Component {
     const resetClassName = priceFilterActive || sizeFilterActive || m2PriceFilterActive ? 'Reset' : 'Reset ResetHidden';
     const priceLabel = priceFilterActive ? this.formatPriceLabel(queryParameters) : 'Price';
     const sizeLabel = sizeFilterActive ? this.formatSizeLabel(queryParameters) : 'Size';
-    const m2PriceLabel = m2PriceFilterActive ? this.formatM2PriceLabel(queryParameters) : 'm2 Price';
+    const m2PriceLabel = m2PriceFilterActive ? this.formatM2PriceLabel(queryParameters) : 'm² Price';
     return (
       <div className='Navbar'>
         <div className='NavbarLogo'>
@@ -58,6 +58,7 @@ class Navbar extends Component {
               <SliderComponent
                 key={1}
                 title={`The average price is ${Math.round(this.props.avgPrice/1000)}k€`}
+                unit='€'
                 values={queryParameters.price}
                 updateValues={selectPriceRange}
                 min={this.props.minPrice}
@@ -75,7 +76,8 @@ class Navbar extends Component {
             popupContent={
               <SliderComponent
                 key={2}
-                title={`The average size is ${this.props.avgSize}m2`}
+                title={`The average size is ${this.props.avgSize}m²`}
+                unit='m²'
                 values={queryParameters.size}
                 updateValues={selectSizeRange}
                 min={this.props.minSize}
@@ -93,7 +95,8 @@ class Navbar extends Component {
           popupContent={
             <SliderComponent
               key={3}
-              title={`The average m2 price is ${this.props.avgM2Price}€`}
+              title={`The average m² price is ${this.props.avgM2Price}€`}
+              unit='€/m²'
               values={queryParameters.m2Price}
               updateValues={selectM2PriceRange}
               min={this.props.minM2Price}

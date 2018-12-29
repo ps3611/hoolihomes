@@ -23,8 +23,8 @@ class Home extends Component {
               <h3 style={{backgroundColor:'red'}}>{price}€</h3>
             </div>
             <div className='HomeDetailsMinor'>
-              <p style={{backgroundColor:'red'}}>{size} m2</p>
-              <p style={{backgroundColor:'red'}}>{m2Price} €/m2</p>
+              <p style={{backgroundColor:'red'}}><b>{size}</b>m²</p>
+              <p style={{backgroundColor:'red'}}><b>{m2Price}</b>€/m²</p>
             </div>
           </div>
         </div>
