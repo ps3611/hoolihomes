@@ -19,8 +19,8 @@ const initialState = {
     centerLatitude: 41.385063,
     centerLongitude: 2.173404,
     price: [0,10000000],
-    m2Price: [0,100000],
     size: [0,10000],
+    m2Price: [0,100000],
     radius: 5000, // in meters
     page: 1,
   },
@@ -28,7 +28,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log(action.type);
   const newQueryParameters = state.queryParameters;
   switch (action.type) {
     case api.HOMES_LIST_SUCCESS:
@@ -39,6 +38,18 @@ export default (state = initialState, action) => {
         avgM2Price: action.payload.avgM2Price,
       };
     case api.INIT_HOMES_LIST_SUCCESS:
+      console.log({
+        ...state,
+        minPrice: action.payload.minPrice,
+        avgPrice: action.payload.avgPrice,
+        maxPrice: action.payload.maxPrice,
+        minSize: action.payload.minSize,
+        avgSize: action.payload.avgSize,
+        maxSize: action.payload.maxSize,
+        minM2Price: action.payload.minM2Price,
+        avgM2Price: action.payload.avgM2Price,
+        maxM2Price: action.payload.maxM2Price,
+      });
       return {
         ...state,
         minPrice: action.payload.minPrice,

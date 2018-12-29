@@ -16,7 +16,6 @@ class ListView extends Component {
 
   render() {
     const { homesList, totalPages } = this.props;
-    console.log(homesList.length);
     if (homesList.length === 0) {
       return (
         <div className='ListView'>

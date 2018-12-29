@@ -12,9 +12,13 @@ export const INIT_HOMES_LIST_SUCCESS = '@@api/INIT_HOMES_LIST_SUCCESS';
 export const INIT_HOMES_LIST_FAILURE = '@@api/INIT_HOMES_LIST_FAILURE';
 
 export const fetchHomesList = (queryParameters, init) => {
-  const urlParameters = qs.stringify(queryParameters);
-	const endpoint = `${SERVER_ENDPOINT}/homes?${urlParameters}`;
   if (init) {
+    const newQueryParameters = queryParameters;
+    newQueryParameters.price = [0,10000000];
+    newQueryParameters.m2Price = [0,10000];
+    newQueryParameters.size = [0,100000];
+    const urlParameters = qs.stringify(newQueryParameters);
+    const endpoint = `${SERVER_ENDPOINT}/homes?${urlParameters}`;
     return ({
       [RSAA]: {
         endpoint: endpoint,
@@ -25,6 +29,8 @@ export const fetchHomesList = (queryParameters, init) => {
     })
   }
   else {
+    const urlParameters = qs.stringify(queryParameters);
+    const endpoint = `${SERVER_ENDPOINT}/homes?${urlParameters}`;
     return ({
       [RSAA]: {
         endpoint: endpoint,
