@@ -5,7 +5,12 @@ class EmptyList extends Component {
   render() {
     return (
       <div className='EmptyList'>
-        No Homes match these filters :(
+        <div className='EmptyListImage'>
+          <img src={require('../../assets/NoHomes.svg')} alt='no homes'/>
+        </div>
+        <div className='EmptyListText'>
+          <h2><i>No homes found...</i></h2>
+        </div>
       </div>
     );
   }

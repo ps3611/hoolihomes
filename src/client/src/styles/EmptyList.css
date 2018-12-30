@@ -1,0 +1,15 @@
+.EmptyList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+}
+
+.EmptyListImage {
+  width: 250px;
+}
+
+.EmptyListText {
+  color: #484848;
+}
