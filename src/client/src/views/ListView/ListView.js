@@ -15,7 +15,7 @@ class ListView extends Component {
   }
 
   render() {
-    const { homesList, totalPages, loading } = this.props;
+    const { homesList, totalPages, loading, queryParameters } = this.props;
     if (loading) {
       return (
         <div className='ListView'>
@@ -49,13 +49,14 @@ class ListView extends Component {
             {homes}
           </div>
           <ReactPaginate
+            pageCount={totalPages}
+            pageRangeDisplayed={2}
+            marginPagesDisplayed={1}
+            forcePage={queryParameters.page-1}
             previousLabel={'<'}
             nextLabel={'>'}
             breakLabel={'...'}
             onPageChange={this.handlePaginationClick}
-            pageCount={totalPages}
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={2}
             containerClassName='containerClassName'
             pageClassName='pageClassName'
             activeClassName='activeClassName'
