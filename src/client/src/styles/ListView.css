@@ -2,6 +2,7 @@
   flex: 7;
   overflow: scroll;
   padding: 10px;
+  color: #484848;
 }
 
 .HomesList {
@@ -11,13 +12,54 @@
   overflow: scroll;
 }
 
-ul {
+.containerClassName{
     display: inline-block;
-    padding-left: 15px;
-    padding-right: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-li {
-    color: #484848;
-    display: inline-block;
+.pageClassName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #008489;
+    padding: 15px;
+    margin: 5px;
+}
+
+.activeClassName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 15px;
+    margin: 5px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    border: 1px solid #008489;
+    background-color: #008489;
+}
+
+.navClassName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #008489;
+    padding: 15px;
+    margin: 5px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    border: 1px solid #008489;
+}
+
+.breakClassName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin: 5px;
 }

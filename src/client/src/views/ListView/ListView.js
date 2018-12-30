@@ -56,7 +56,16 @@ class ListView extends Component {
             pageCount={totalPages}
             marginPagesDisplayed={1}
             pageRangeDisplayed={2}
+            containerClassName='containerClassName'
+            pageClassName='pageClassName'
+            activeClassName='activeClassName'
+            previousClassName='navClassName'
+            nextClassName='navClassName'
+            breakClassName='breakClassName'
           />
+          <div>
+            Text..
+          </div>
         </div>
     );
   }
