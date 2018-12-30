@@ -30,6 +30,8 @@ class ListView extends Component {
         </div>
       )
     }
+    const previousClassName = queryParameters.page === 1 ? 'hidden' : 'navClassName';
+    const nextClassName = queryParameters.page === totalPages ? 'hidden' : 'navClassName';
     const homes = homesList.map((home, i) => (
         <Home
           key={i}
@@ -60,9 +62,9 @@ class ListView extends Component {
             containerClassName='containerClassName'
             pageClassName='pageClassName'
             activeClassName='activeClassName'
-            previousClassName='navClassName'
-            nextClassName='navClassName'
             breakClassName='breakClassName'
+            previousClassName={previousClassName}
+            nextClassName={nextClassName}
           />
           <div>
             Text..

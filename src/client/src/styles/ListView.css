@@ -56,6 +56,10 @@
     border: 1px solid #008489;
 }
 
+.hidden {
+  display: none;
+}
+
 .breakClassName {
     display: flex;
     justify-content: center;
