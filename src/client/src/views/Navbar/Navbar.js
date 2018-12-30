@@ -47,14 +47,14 @@ class Navbar extends Component {
     return (
       <div className='Navbar'>
         <div className='NavbarLogo'>
-          <h1>Hooli Homes</h1>
+          <img src={require('../../assets/HooliIcon.svg')} alt='logo' className='NavbarLogoImg'/>
         </div>
         <div className='NavbarFilters'>
           <div
             className={resetClassName}
             onClick={this.handleResetClick}
           >
-            <h3>Reset</h3>
+            <h4>Reset</h4>
           </div>
           <Filter
             id='price'

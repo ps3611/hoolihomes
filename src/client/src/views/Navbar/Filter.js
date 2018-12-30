@@ -25,7 +25,7 @@ class Filter extends Component {
         onMouseEnter={this.showTooltip}
         onMouseLeave={this.hideTooltip}
       >
-        <h3>{ label }</h3>
+        <h4>{ label }</h4>
         <ToolTip
           active={this.state.isTooltipActive}
           parent={`#${id}`}
