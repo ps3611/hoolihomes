@@ -15,7 +15,14 @@ class ListView extends Component {
   }
 
   render() {
-    const { homesList, totalPages } = this.props;
+    const { homesList, totalPages, loading } = this.props;
+    if (loading) {
+      return (
+        <div className='ListView'>
+          <img src={require('../../assets/Loading.gif')} alt='loading'/>
+        </div>
+      )
+    }
     if (homesList.length === 0) {
       return (
         <div className='ListView'>
