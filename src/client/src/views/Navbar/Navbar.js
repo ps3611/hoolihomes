@@ -47,7 +47,7 @@ class Navbar extends Component {
     return (
       <div className='Navbar'>
         <div className='NavbarLogo'>
-          <img src={require('../../assets/HooliIcon.svg')} alt='logo' className='NavbarLogoImg'/>
+          <img src={require('../../assets/HooliLogo.svg')} alt='logo' className='NavbarLogoImg'/>
         </div>
         <div className='NavbarFilters'>
           <div
