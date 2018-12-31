@@ -1,0 +1,55 @@
+.containerClassName{
+    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageClassName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #008489;
+    padding: 15px;
+    margin: 5px;
+}
+
+.activeClassName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 15px;
+    margin: 5px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    border: 1px solid #008489;
+    background-color: #008489;
+}
+
+.navClassName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #008489;
+    padding: 15px;
+    margin: 5px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    border: 1px solid #008489;
+}
+
+.hidden {
+  display: none;
+}
+
+.breakClassName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin: 5px;
+}

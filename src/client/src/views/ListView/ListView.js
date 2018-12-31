@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ReactPaginate from 'react-paginate';
 import { fetchHomesList } from '../../actions/apiActions';
 import Home from './Home';
+import Pagination from './Pagination';
 import EmptyList from './EmptyList';
 import '../../styles/ListView.css';
 
@@ -10,7 +10,7 @@ class ListView extends Component {
 
   handlePaginationClick = (data) => {
     const newQueryParameters = this.props.queryParameters;
-    newQueryParameters.page = data.selected+1;
+    newQueryParameters.page = data.selected + 1;
     this.props.fetchHomesList(newQueryParameters);
   }
 
@@ -30,8 +30,6 @@ class ListView extends Component {
         </div>
       )
     }
-    const previousClassName = queryParameters.page === 1 ? 'hidden' : 'navClassName';
-    const nextClassName = queryParameters.page === totalPages ? 'hidden' : 'navClassName';
     const homes = homesList.map((home, i) => (
         <Home
           key={i}
@@ -50,25 +48,11 @@ class ListView extends Component {
           <div className='HomesList'>
             {homes}
           </div>
-          <ReactPaginate
-            pageCount={totalPages}
-            pageRangeDisplayed={2}
-            marginPagesDisplayed={1}
-            forcePage={queryParameters.page-1}
-            previousLabel={'<'}
-            nextLabel={'>'}
-            breakLabel={'...'}
-            onPageChange={this.handlePaginationClick}
-            containerClassName='containerClassName'
-            pageClassName='pageClassName'
-            activeClassName='activeClassName'
-            breakClassName='breakClassName'
-            previousClassName={previousClassName}
-            nextClassName={nextClassName}
+          <Pagination
+            page={queryParameters.page}
+            totalPages={totalPages}
+            handlePaginationClick={this.handlePaginationClick}
           />
-          <div>
-            Text..
-          </div>
         </div>
     );
   }
