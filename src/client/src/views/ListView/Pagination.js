@@ -13,9 +13,11 @@ class Pagination extends Component {
   }
 
   render() {
-    const { queryParameters, totalPages } = this.props;
+    const { homesList, totalPages, totalResults, queryParameters } = this.props;
     const previousClassName = queryParameters.page === 1 ? 'hidden' : 'navClassName';
     const nextClassName = queryParameters.page === totalPages ? 'hidden' : 'navClassName';
+    console.log('page ',queryParameters.page);
+    console.log('length ',homesList.length);
     return (
       <div className='Pagination'>
         <ReactPaginate
@@ -35,7 +37,7 @@ class Pagination extends Component {
           nextClassName={nextClassName}
           />
         <div className='HomesCount'>
-          <p>1 – 18 of 300+ Homes</p>
+          <p>{`${(queryParameters.page-1) * 20 + 1} – ${(queryParameters.page - 1) * 20 + homesList.length} of ${totalResults} Homes`}</p>
         </div>
       </div>
     );
@@ -43,7 +45,9 @@ class Pagination extends Component {
 }
 
 const mapStateToProps = state => ({
+  homesList: state.api.homesList,
   totalPages: state.api.totalPages,
+  totalResults: state.api.totalResults,
   queryParameters: state.settings.queryParameters,
 });
 
