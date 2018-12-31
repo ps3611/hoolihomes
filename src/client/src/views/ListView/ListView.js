@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchHomesList } from '../../actions/apiActions';
 import Home from './Home';
 import Pagination from './Pagination';
 import EmptyList from './EmptyList';
@@ -8,14 +7,8 @@ import '../../styles/ListView.css';
 
 class ListView extends Component {
 
-  handlePaginationClick = (data) => {
-    const newQueryParameters = this.props.queryParameters;
-    newQueryParameters.page = data.selected + 1;
-    this.props.fetchHomesList(newQueryParameters);
-  }
-
   render() {
-    const { homesList, totalPages, loading, queryParameters } = this.props;
+    const { homesList, loading } = this.props;
     if (loading) {
       return (
         <div className='ListView'>
@@ -48,11 +41,7 @@ class ListView extends Component {
           <div className='HomesList'>
             {homes}
           </div>
-          <Pagination
-            page={queryParameters.page}
-            totalPages={totalPages}
-            handlePaginationClick={this.handlePaginationClick}
-          />
+          <Pagination />
         </div>
     );
   }
@@ -60,13 +49,10 @@ class ListView extends Component {
 
 const mapStateToProps = state => ({
   homesList: state.api.homesList,
-  totalPages: state.api.totalPages,
-  queryParameters: state.settings.queryParameters,
   loading: state.listViewPage.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchHomesList: queryParameters => dispatch(fetchHomesList(queryParameters)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListView);

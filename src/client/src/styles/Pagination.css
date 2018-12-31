@@ -1,3 +1,14 @@
+.Pagination {
+  padding: 30px;
+}
+
+.HomesCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 .containerClassName{
     display: inline-block;
     display: flex;
