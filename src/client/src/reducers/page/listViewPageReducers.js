@@ -7,22 +7,22 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case api.INIT_HOMES_LIST_REQUEST:
-    case api.HOMES_LIST_REQUEST:
+    case api.HOMES_CITY_REQUEST:
+    case api.HOMES_FILTER_REQUEST:
       return {
         ...state,
         loading: true,
         errors: {},
       };
-    case api.INIT_HOMES_LIST_SUCCESS:
-    case api.HOMES_LIST_SUCCESS:
+    case api.HOMES_CITY_SUCCESS:
+    case api.HOMES_FILTER_SUCCESS:
       return {
         ...state,
         loading: false,
         errors: {},
       };
-    case api.INIT_HOMES_LIST_FAILURE:
-    case api.HOMES_LIST_FAILURE:
+    case api.HOMES_CITY_FAILURE:
+    case api.HOMES_FILTER_FAILURE:
       return {
         ...state,
         loading: false,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
-import { fetchHomesList } from '../../actions/apiActions';
+import { fetchHomesPagination } from '../../actions/apiActions';
 import '../../styles/Pagination.css'
 
 class Pagination extends Component {
@@ -9,15 +9,13 @@ class Pagination extends Component {
   handlePaginationClick = (data) => {
     const newQueryParameters = this.props.queryParameters;
     newQueryParameters.page = data.selected + 1;
-    this.props.fetchHomesList(newQueryParameters);
+    this.props.fetchHomesPagination(newQueryParameters);
   }
 
   render() {
     const { homesList, totalPages, totalResults, queryParameters } = this.props;
     const previousClassName = queryParameters.page === 1 ? 'hidden' : 'navClassName';
     const nextClassName = queryParameters.page === totalPages ? 'hidden' : 'navClassName';
-    console.log('page ',queryParameters.page);
-    console.log('length ',homesList.length);
     return (
       <div className='Pagination'>
         <ReactPaginate
@@ -52,7 +50,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchHomesList: queryParameters => dispatch(fetchHomesList(queryParameters)),
+  fetchHomesPagination: queryParameters => dispatch(fetchHomesPagination(queryParameters)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pagination);

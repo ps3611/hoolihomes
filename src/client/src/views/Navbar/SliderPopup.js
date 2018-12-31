@@ -12,7 +12,7 @@ class SliderPopup extends Component {
 
   handleAfterChange = value => {
     this.props.updateValues(value);
-    this.props.fetchHomesList(this.props.queryParameters);
+    this.props.fetchHomesFilter(this.props.queryParameters);
   }
 
   render() {

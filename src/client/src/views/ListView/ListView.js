@@ -6,7 +6,6 @@ import EmptyList from './EmptyList';
 import '../../styles/ListView.css';
 
 class ListView extends Component {
-
   render() {
     const { homesList, loading } = this.props;
     if (loading) {

@@ -6,7 +6,7 @@ class CityPopup extends Component {
 
   handleClick = city => {
     this.props.updateValues(city);
-    this.props.fetchHomesListCity(this.props.queryParameters);
+    this.props.fetchHomesCity(this.props.queryParameters);
   }
 
   render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchHomesList, fetchHomesListCity } from '../../actions/apiActions';
+import { fetchHomesFilter, fetchHomesCity } from '../../actions/apiActions';
 import { selectPriceRange, selectM2PriceRange, selectSizeRange, selectCity, resetFilters } from '../../actions/settingsActions';
 import Filter from './Filter';
 import SliderPopup from './SliderPopup';
@@ -24,13 +24,13 @@ class Navbar extends Component {
 
   handleResetClick = () => {
     this.props.resetFilters();
-    this.props.fetchHomesListCity(this.props.queryParameters);
+    this.props.fetchHomesCity(this.props.queryParameters);
   }
 
   render() {
     const {
       selectedCity,
-      fetchHomesList,
+      fetchHomesFilter,
       queryParameters,
       selectPriceRange,
       selectM2PriceRange,
@@ -70,7 +70,7 @@ class Navbar extends Component {
                 min={this.props.minPrice}
                 max={this.props.maxPrice}
                 step={1000}
-                fetchHomesList={fetchHomesList}
+                fetchHomesFilter={fetchHomesFilter}
                 queryParameters={queryParameters}
               />
             }
@@ -89,7 +89,7 @@ class Navbar extends Component {
                 min={this.props.minSize}
                 max={this.props.maxSize}
                 step={1}
-                fetchHomesList={fetchHomesList}
+                fetchHomesFilter={fetchHomesFilter}
                 queryParameters={queryParameters}
               />
             }
@@ -108,7 +108,7 @@ class Navbar extends Component {
               min={this.props.minM2Price}
               max={this.props.maxM2Price}
               step={1}
-              fetchHomesList={fetchHomesList}
+              fetchHomesFilter={fetchHomesFilter}
               queryParameters={queryParameters}
             />
           }
@@ -119,7 +119,7 @@ class Navbar extends Component {
             popupContent={
               <CityPopup
                 updateValues={selectCity}
-                fetchHomesListCity={this.props.fetchHomesListCity}
+                fetchHomesCity={this.props.fetchHomesCity}
                 queryParameters={queryParameters}
               />
             }
@@ -156,8 +156,8 @@ const mapDispatchToProps = dispatch => ({
   selectSizeRange: range => dispatch(selectSizeRange(range)),
   selectCity: city => dispatch(selectCity(city)),
   resetFilters: () => dispatch(resetFilters()),
-  fetchHomesList: queryParameters => dispatch(fetchHomesList(queryParameters)),
-  fetchHomesListCity: queryParameters => dispatch(fetchHomesListCity(queryParameters)),
+  fetchHomesFilter: queryParameters => dispatch(fetchHomesFilter(queryParameters)),
+  fetchHomesCity: queryParameters => dispatch(fetchHomesCity(queryParameters)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

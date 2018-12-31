@@ -18,10 +18,10 @@ const initialState = {
   queryParameters: {
     centerLatitude: 41.385063,
     centerLongitude: 2.173404,
+    radius: 5000, // in meters
     price: [0,10000000],
     size: [0,10000],
     m2Price: [0,100000],
-    radius: 5000, // in meters
     page: 1,
   },
   errors: {},
@@ -30,14 +30,14 @@ const initialState = {
 export default (state = initialState, action) => {
   const newQueryParameters = state.queryParameters;
   switch (action.type) {
-    case api.HOMES_LIST_SUCCESS:
+    case api.HOMES_FILTER_SUCCESS:
       return {
         ...state,
         avgPrice: action.payload.avgPrice,
         avgSize: action.payload.avgSize,
         avgM2Price: action.payload.avgM2Price,
       };
-    case api.INIT_HOMES_LIST_SUCCESS:
+    case api.HOMES_CITY_SUCCESS:
       return {
         ...state,
         minPrice: action.payload.minPrice,
