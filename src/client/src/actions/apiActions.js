@@ -1,7 +1,8 @@
 import { RSAA } from 'redux-api-middleware';
 import qs from 'qs';
 
-const SERVER_ENDPOINT = 'http://127.0.0.1:3001';
+const SERVER_ENDPOINT = 'http://34.201.104.13:3001';
+// const SERVER_ENDPOINT = 'http://127.0.0.1:3001';
 
 export const HOMES_CITY_REQUEST = '@@api/HOMES_CITY_REQUEST';
 export const HOMES_CITY_SUCCESS = '@@api/HOMES_CITY_SUCCESS';
