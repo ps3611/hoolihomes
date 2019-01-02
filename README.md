@@ -18,7 +18,7 @@ With so many homes for sale in today's real estate market, it is really challeng
 
 ## Get Started
 
-1. Clone the repository
+1. Clone repository
 ```sh
 > git clone https://github.com/ps3611/hoolihomes.git
 ```
@@ -29,17 +29,16 @@ For each directory *cron*, *server* and *client*, do:
 > npm install
 ```
 
-3. Configure your environment
+3. Configure environment
 
 ```sh
 > cp .env.example .env
 # Edit .env
 ```
 
-4. Run the project
+4. Launch directory's code
 
 ```sh
-# Launch directory
 > npm start
 ```
 
