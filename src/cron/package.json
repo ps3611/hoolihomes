@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/ps3611/mth-api#readme",
   "devDependencies": {
-    "eslint": "^5.6.1",
+    "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0"
   },
