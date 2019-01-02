@@ -1,15 +1,16 @@
 # Hooli Homes
 
 Find the home of your dreams!
+
 www.hoolihomes.eu
 
 ![Img](https://s3.amazonaws.com/ps3611-images/hoolihomes.png)
 
-#### Idea
+## Idea
 
-With so many homes for sale in today's market, it is quite challenging to find down to exactly what you are looking for. That is where [Hooli Homes](http://hoolihomes.eu/) can come in handy! With its easy to use filter functionality and its simple UI, find the home that meets your criteria within minutes.
+With so many homes for sale in today's market, it is really challenging to find exactly what you are looking for. That is where [Hooli Homes](http://hoolihomes.eu/) comes handy. With its simple user interface and easy-to-use filter functionality, find the home that meets your criteria within minutes!
 
-#### Tech
+## Tech
 
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
@@ -17,7 +18,7 @@ With so many homes for sale in today's market, it is quite challenging to find d
 - [MongoDB](https://www.mongodb.com/)
 - [Mongoose](https://mongoosejs.com/)
 
-#### Get Started
+## Get Started
 
 1. Clone the repository
 ```sh
@@ -29,11 +30,29 @@ With so many homes for sale in today's market, it is quite challenging to find d
 > npm install
 ```
 
-3. Launch
+3. Configure your environment
+
 ```sh
-> npm start
+> cp client-desktop/.env.example client-desktop/.env
+# Edit client-desktop/.env
+
+> cp server/.env.example server/.env
+# Edit server/.env
 ```
 
-#### License
+4. Run the project
+
+```sh
+# Runs both client and server
+> npm start
+
+# Starts the desktop client
+> npm run start:client
+
+# Starts the server
+> npm run start:server
+```
+
+## License
 
 MIT
