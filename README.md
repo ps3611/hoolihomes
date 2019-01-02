@@ -1,14 +1,12 @@
 # Hooli Homes
 
-Find the home of your dreams!
-
-www.hoolihomes.eu
+Find the home of your dreams at www.hoolihomes.eu ✨
 
 ![Img](https://s3.amazonaws.com/ps3611-images/hoolihomes.png)
 
 ## Idea
 
-With so many homes for sale in today's market, it is really challenging to find exactly what you are looking for. That is where [Hooli Homes](http://hoolihomes.eu/) comes handy. With its simple user interface and easy-to-use filter functionality, find the home that meets your criteria within minutes!
+With so many homes for sale in today's real estate market, it is really challenging to find exactly what you are looking for. That's where [Hooli Homes](http://hoolihomes.eu/) comes to the rescue! With its simple user interface and easy-to-use filter functionality, find the home that meets your criteria within minutes 💪🏼
 
 ## Tech
 
@@ -24,6 +22,7 @@ With so many homes for sale in today's market, it is really challenging to find 
 ```sh
 > git clone https://github.com/ps3611/hoolihomes.git
 ```
+For each directory *cron*, *server* and *client*, do:
 
 2. Install dependencies
 ```sh
@@ -33,24 +32,15 @@ With so many homes for sale in today's market, it is really challenging to find 
 3. Configure your environment
 
 ```sh
-> cp client-desktop/.env.example client-desktop/.env
-# Edit client-desktop/.env
-
-> cp server/.env.example server/.env
-# Edit server/.env
+> cp .env.example .env
+# Edit .env
 ```
 
 4. Run the project
 
 ```sh
-# Runs both client and server
+# Launch directory
 > npm start
-
-# Starts the desktop client
-> npm run start:client
-
-# Starts the server
-> npm run start:server
 ```
 
 ## License
